@@ -1,4 +1,5 @@
-from Rewrite_CodonGeneconv import ReCodonGeneconv
+
+from IGCexpansion.CodonGeneconv import ReCodonGeneconv
 import os
 import argparse
 
@@ -8,27 +9,28 @@ def main(args):
     paralog = [paralog1, paralog2]
     newicktree = './YeastTree.newick'
 
-    IGC_geo = args.IGC_geo
-    sim_num = args.sim_num
+    IGC_geo = 3.0#args.IGC_geo
+    sim_num = 1#args.sim_num
 
-    alignment_file = './' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + '_'.join(paralog) + '_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '.fasta'
+    alignment_file = './' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + '_'.join(paralog) + '_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '_leaf.fasta'
     save_name = './SimulationSave/' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/' + '_'.join(paralog) + '_MG94_geo_'  + str(IGC_geo) + '_Sim_' + str(sim_num) + '_save.txt'
     summary_name = './SimulationSummary/' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/' + '_'.join(paralog) + '_MG94_geo_'  + str(IGC_geo) + '_Sim_' + str(sim_num) + '_summary.txt'
 
     # generate folder if not exist
     if not os.path.isdir('./SimulationSave/' + '_'.join(paralog) + '/'):
-        os.mkdir('./SimulationSave/' + '_'.join(paralog) + '/')
+        os.makedirs('./SimulationSave/' + '_'.join(paralog) + '/')
 
     if not os.path.isdir('./SimulationSave/' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/'):
-        os.mkdir('./SimulationSave/' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/')
+        os.makedirs('./SimulationSave/' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/')
 
     if not os.path.isdir('./SimulationSummary/' + '_'.join(paralog) + '/'):
-        os.mkdir('./SimulationSummary/' + '_'.join(paralog) + '/')
+        os.makedirs('./SimulationSummary/' + '_'.join(paralog) + '/')
 
     if not os.path.isdir('./SimulationSummary/' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/'):
-        os.mkdir('./SimulationSummary/' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/')
+        os.makedirs('./SimulationSummary/' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/')
         
     test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name)
+    
 
     test.get_mle(False, True, 0, 'BFGS')
     test.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name)

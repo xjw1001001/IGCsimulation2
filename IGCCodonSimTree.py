@@ -13,6 +13,7 @@
 
 from IGCCodonsimulator import OneBranchIGCCodonSimulator, draw_from_distribution
 from CodonGeneconFunc import *
+import networkx as nx
 import cPickle
 
 class TreeIGCCodonSimulator:
@@ -246,7 +247,19 @@ class TreeIGCCodonSimulator:
                 else:  # only observe one paralog of the outgroup species
                     paralog = self.pair[0]
                     f.write('>' + node + paralog + '\n')
-                    f.write(self.node_to_sequence[node][paralog_counter] + '\n')        
+                    f.write(self.node_to_sequence[node][paralog_counter] + '\n')
+        
+        with open(self.seq_file[:-6] + '_leaf.fasta', 'w+') as f:
+            for node in self.leaves:
+                if not node in self.outgroup[0]:
+                    for paralog_counter in range(self.num_paralog):
+                        paralog = self.pair[paralog_counter]
+                        f.write('>' + node + paralog + '\n')
+                        f.write(self.node_to_sequence[node][paralog_counter] + '\n')
+                else:  # only observe one paralog of the outgroup species
+                    paralog = self.pair[0]
+                    f.write('>' + node + paralog + '\n')
+                    f.write(self.node_to_sequence[node][paralog_counter] + '\n')
 
     def get_log(self):
         with open(self.log_file, 'w+') as f:

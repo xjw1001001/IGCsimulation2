@@ -20,30 +20,30 @@ if __name__ == '__main__':
     IGC_threshold = -0.1
 
     IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
-    IGC_geo_list = [3.0]
+    #IGC_geo_list = [3.0]
     for IGC_geo in IGC_geo_list:
         IGC_geo_codon = IGC_geo / 3.0
         IGC_init = tau / IGC_geo_codon
         x_IGC = [IGC_init, 1.0 / IGC_geo_codon, IGC_threshold]  # These values vary for the simulation study
         
         #sim_num = 1
-        for sim_num in range(100):
+        for sim_num in range(2):
             log_folder = './' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/log/'
             div_folder = './' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/div/'
 
             # Now create folder if they don't exist
             
             if not os.path.isdir('./' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/'):
-                os.mkdir('./' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/')
+                os.makedirs('./' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/')
 
             if not os.path.isdir('./' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'):
-                os.mkdir('./' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/')
+                os.makedirs('./' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/')
 
             if not os.path.isdir(log_folder):
-                os.mkdir(log_folder)
+                os.makedirs(log_folder)
 
             if not os.path.isdir(div_folder):
-                os.mkdir(div_folder)
+                os.makedirs(div_folder)
 
             
             seq_file = './' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + '_'.join(paralog) + '_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '.fasta'
@@ -64,8 +64,9 @@ if __name__ == '__main__':
             save_file = './save/MG94_' + '_'.join(paralog) + '_nonclock_save.txt'
             x_rates = np.exp([-3.925914311698581738, -1.533949335440421891, -1.564219363086546410, -1.762095498829083562, -3.660826292734839171, -3.626559649929371076,
                        -3.438639957077882059, -2.460890888502840657, -3.690966112631306473, -2.870638256407853639, -2.844813362532052192, -3.822236386160084542])
-
-            test = TreeIGCCodonSimulator(num_exon, newicktree, paralog, seq_file, log_file, x_exon, x_IGC, log_folder, div_folder)
+            seed =    sim_num + 10000     
+    
+            test = TreeIGCCodonSimulator(num_exon, newicktree, paralog, seq_file, log_file, x_exon, x_IGC, log_folder, div_folder, seed)
             test.unpack_x_rates(x_rates)
             try:
                 test.sim()
