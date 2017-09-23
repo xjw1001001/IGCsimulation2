@@ -1399,6 +1399,119 @@ class ReCodonGeneconv:
         else:
             self.x = np.loadtxt(open(save_file, 'r'))
             self.update_by_x()
+    
+    def site_reconstruction(self, package = 'new', display = False):#前面三个是不要的
+        if package == 'new':
+            self.scene_ll = self.get_scene()
+            requests = [{'property' : "DNDNODE"}]
+            j_in = {
+                'scene' : self.scene_ll,
+                'requests' : requests
+                }        
+            j_out = jsonctmctree.interface.process_json_in(j_in)
+            
+            status = j_out['status']
+            states_matrix = np.array(j_out['responses'][0])
+            marginal_states_matrix_1 = np.zeros((self.nsites,61,len(self.node_to_num))) 
+            marginal_states_matrix_2 = np.zeros((self.nsites,61,len(self.node_to_num))) 
+            for site in range(self.nsites):
+                for node in range(len(self.node_to_num)):
+                    for i in range(61):
+                        marginal_states_matrix_1[site,i,node] = sum(states_matrix[site,i*61:i*61+61,node])
+                        marginal_states_matrix_2[site,i,node] = sum(states_matrix[site,i:i+61*61:61,node])
+            #iid_obs * states * sites, we want to find the states to make the number biggest
+            maxprob_number = np.zeros((self.nsites,len(self.node_to_num)))
+            for sites in range(self.nsites):
+                for nodes_num in range(len(self.node_to_num)):
+                    if self.Model == 'HKY':
+                        maxprob_number[sites][nodes_num] = np.argmax(states_matrix[sites,0:16,nodes_num])
+                    elif self.Model == 'MG94':
+                        maxprob_number[sites][nodes_num] = np.argmax(states_matrix[sites,0:3721,nodes_num])
+                        
+            #find the max
+            tt=10
+            likelihood_temp=[]
+            argmatrix=np.zeros((self.nsites,len(self.node_to_num),tt))  
+            likelihood_matrix=np.zeros((self.nsites,len(self.node_to_num),tt))  
+            
+            for site in range(self.nsites):
+                likelihood_temp.append([])
+                for node in range(len(self.node_to_num)):
+                    likelihood_temp[site].append([])
+                    likelihood_temp[site][node]={}
+                    for i in range(tt):      
+                        likelihood_temp[site][node][np.argpartition(-states_matrix[site,0:3721,node], tt)[i]]=states_matrix[site,0:3721,node][np.argpartition(-states_matrix[site,0:3721,node], tt)[i]]
+            #sort
+            likelihood_dict=[]
+            for site in range(self.nsites):
+                likelihood_dict.append([])
+                for node in range(len(self.node_to_num)):
+                    likelihood_dict[site].append([])
+                    likelihood_dict[site][node]=sorted(likelihood_temp[site][node].items(), lambda x, y: cmp(x[1], y[1]), reverse=True)
+                    for i in range(tt):  
+                        (argmatrix[site,node,i],likelihood_matrix[site,node,i])=likelihood_dict[site][node][i]
+            self.likelihood_dict=likelihood_dict
+            #save as numpy
+            if self.tau == 0:
+                model = self.Model + '_tau=0'
+            else:
+                model = self.Model + '_IGC'
+            
+            np.save('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/' + 'arg_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.npy', argmatrix)
+            np.save('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/' + 'likelihood_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.npy', likelihood_matrix)
+            np.save('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/' + 'marginal_' + self.paralog[0] + '_' +model +'.npy', marginal_states_matrix_1)
+            np.save('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/' + 'marginal_' + self.paralog[1] + '_' +model +'.npy', marginal_states_matrix_2)
+            for node in range(len(self.node_to_num)):    
+                np.savetxt(open('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/' + 'arg_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model + '_node_' + str(node) +'.txt', 'w+'), argmatrix[:,node,:])
+                np.savetxt(open('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/' + 'likelihood_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model + '_node_' + str(node) +'.txt', 'w+'), likelihood_matrix[:,node,:])
+            
+            #save model paramteres
+            a = np.array(self.pi+[self.kappa]+[self.omega])
+            b = np.array([self.tau])
+            c = np.exp(self.x_rates)
+            np.savetxt(open('./test/Ancestral_reconstruction/parameters/' + 'transition_model_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt','w+'), a)
+            np.savetxt(open('./test/Ancestral_reconstruction/parameters/' + 'tau_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt','w+'), b)
+            np.savetxt(open('./test/Ancestral_reconstruction/parameters/' + 'branch_length' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt','w+'), c)
+
+            self.get_reconstruction_result(states_matrix, maxprob_number, DNA_or_protein = 'DNA')            
+        else:
+            print ('Need to implement this for old package')
+        
+    def get_reconstruction_result(self, states_matrix, maxmatrix, DNA_or_protein = 'DNA'):
+        site_differences = [len(set(maxmatrix[sites])) for sites in range(self.nsites)]#TODO: sitedifferences in different paralogs
+        if self.Model == 'HKY':
+            if self.tau == 0:
+                self.reconstruction_series = {'model':'HKY', 'data': [], 'treename': self.newicktree}
+            else:
+                self.reconstruction_series = {'model':'HKY+IGC', 'data': [], 'treename': self.newicktree}
+            for nodes_num in range(len(self.node_to_num)):
+                self.reconstruction_series['data'].append({"name":self.num_to_node[nodes_num], self.paralog[0]:"", self.paralog[1]:""})
+                for sites in range(0,self.nsites):
+                    state_1, state_2 = divmod(maxmatrix[sites][nodes_num], 4)
+                    state_1 = int(state_1)
+                    state_2 = int(state_2)
+                    self.reconstruction_series['data'][nodes_num][self.paralog[0]]+=self.state_to_nt[state_1]
+                    self.reconstruction_series['data'][nodes_num][self.paralog[1]]+=self.state_to_nt[state_2]
+        elif self.Model == 'MG94':
+            if self.tau == 0:
+                self.reconstruction_series = {'model':'MG94', 'data':[], 'treename': self.newicktree}
+            else:
+                self.reconstruction_series = {'model':'MG94+IGC', 'data':[], 'treename': self.newicktree}
+            for nodes_num in range(len(self.node_to_num)):
+                self.reconstruction_series['data'].append({"name":self.num_to_node[nodes_num], self.paralog[0]:"", self.paralog[1]:""})
+                for sites in range(0,self.nsites):
+                    state_1, state_2 = divmod(maxmatrix[sites][nodes_num], 61)
+                    state_1 = int(state_1)
+                    state_2 = int(state_2)
+                    self.reconstruction_series['data'][nodes_num][self.paralog[0]]+=self.state_to_codon[state_1]
+                    self.reconstruction_series['data'][nodes_num][self.paralog[1]]+=self.state_to_codon[state_2]
+        filename = open('./test/Ancestral_reconstruction/series/' + 'ancestral_reconstruction_' + self.paralog[0] + '_' + self.paralog[1] + '_' +self.reconstruction_series['model'] + '.fasta' ,'w')
+        for nodes_num in range(len(self.reconstruction_series['data'])):
+            filename.write('>'+self.reconstruction_series['data'][nodes_num]['name']+self.paralog[0]+'\n')
+            filename.write(self.reconstruction_series['data'][nodes_num][self.paralog[0]]+'\n')
+            filename.write('>'+self.reconstruction_series['data'][nodes_num]['name']+self.paralog[1]+'\n')
+            filename.write(self.reconstruction_series['data'][nodes_num][self.paralog[1]]+'\n')
+        filename.close()
 
 def main(args):
     paralog = [args.paralog1, args.paralog2]
