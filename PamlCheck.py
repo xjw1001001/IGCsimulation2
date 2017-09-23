@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 import os
 import subprocess
 from Bio import Seq, SeqIO, AlignIO, Phylo

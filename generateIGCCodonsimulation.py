@@ -1,6 +1,6 @@
 from IGCCodonSimTree import *
 import os
-
+#-*- coding:utf-8 -*-
 
 # This file is used to generate simulation data
 # Xiang Ji
@@ -16,10 +16,10 @@ if __name__ == '__main__':
     paralog = [paralog1, paralog2]
     newicktree = './YeastTree.newick'
     num_exon = 163
-    tau = 1.409408 * 10.0
+    tau = 1.409408
     IGC_threshold = -0.1
 
-    IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
+    IGC_geo_list = [1.0, 3.0, 10.0, 50.0, 100.0, 500.0]
     #IGC_geo_list = [3.0]
     for IGC_geo in IGC_geo_list:
         IGC_geo_codon = IGC_geo / 3.0
@@ -28,16 +28,16 @@ if __name__ == '__main__':
         
         #sim_num = 1
         for sim_num in range(2):
-            log_folder = './' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/log/'
-            div_folder = './' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/div/'
+            log_folder = './' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/log/'
+            div_folder = './' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/div/'
 
             # Now create folder if they don't exist
             
-            if not os.path.isdir('./' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/'):
-                os.makedirs('./' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/')
+            if not os.path.isdir('./' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/'):
+                os.makedirs('./' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/')
 
-            if not os.path.isdir('./' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'):
-                os.makedirs('./' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/')
+            if not os.path.isdir('./' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'):
+                os.makedirs('./' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/')
 
             if not os.path.isdir(log_folder):
                 os.makedirs(log_folder)
@@ -46,8 +46,8 @@ if __name__ == '__main__':
                 os.makedirs(div_folder)
 
             
-            seq_file = './' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + '_'.join(paralog) + '_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '.fasta'
-            log_file = './' + '_'.join(paralog) + '_10Tau/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + '_'.join(paralog) + '_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '.log'
+            seq_file = './' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + '_'.join(paralog) + '_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '.fasta'
+            log_file = './' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + '_'.join(paralog) + '_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '.log'
 
             save_file = './save/MG94_' + '_'.join(paralog) + '_nonclock_save.txt'
 

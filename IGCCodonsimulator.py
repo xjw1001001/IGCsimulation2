@@ -376,7 +376,7 @@ if __name__ == '__main__':
     IGC_q = 0.025
     IGC_threshold = 0.8
 
-    IGC_geo = 3.0
+    IGC_geo = 45.0
     tau = 1.409408
     IGC_geo_codon = IGC_geo / 3.0
     IGC_init = tau / IGC_geo_codon

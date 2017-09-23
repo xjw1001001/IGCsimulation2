@@ -1,5 +1,5 @@
-
-from IGCexpansion.CodonGeneconv import ReCodonGeneconv
+#-*- coding:utf-8 -*-
+from Rewrite_CodonGeneconv import ReCodonGeneconv
 import os
 import argparse
 
@@ -9,8 +9,8 @@ def main(args):
     paralog = [paralog1, paralog2]
     newicktree = './YeastTree.newick'
 
-    IGC_geo = 3.0#args.IGC_geo
-    sim_num = 1#args.sim_num
+    IGC_geo = args.IGC_geo
+    sim_num = args.sim_num
 
     alignment_file = './' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + '_'.join(paralog) + '_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '_leaf.fasta'
     save_name = './SimulationSave/' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/' + '_'.join(paralog) + '_MG94_geo_'  + str(IGC_geo) + '_Sim_' + str(sim_num) + '_save.txt'
@@ -33,6 +33,7 @@ def main(args):
     
 
     test.get_mle(False, True, 0, 'BFGS')
+    test.site_reconstruction()
     test.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name)
     
     

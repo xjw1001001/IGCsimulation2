@@ -5,10 +5,10 @@ if __name__ == '__main__':
     paralog2 = 'YEL054C'
     paralog = [paralog1, paralog2]
 
-    IGC_geo_list = [1.0, 10.0, 50.0, 100.0, 500.0]
-    sim_num_list = range(100)
+    IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
+    sim_num_list = range(2)
 
-    sh_line = 'sbatch -o IGCSim-%j.out --mail-type=FAIL --mail-user=xji3@ncsu.edu ./ShFiles/'
+    sh_line = 'sbatch -o IGCSim-%j.out --mail-type=FAIL --mail-user=xjw1001001@qq.com ./ShFiles/'
 
     for IGC_geo in IGC_geo_list:
         IGC_geo_sh_file = './' + '_'.join(paralog) + '_IGCgeo_' + str(IGC_geo) + '.sh'

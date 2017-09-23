@@ -1,10 +1,11 @@
+#-*- coding:utf-8 -*-
 # Uses Alex Griffing's JsonCTMCTree package for likelihood and gradient calculation
 # Re-write of my previous CodonGeneconv class
 # commit number: Oct 22nd, 2014 for old package
 # cb1ba60ee2b57d6703cd9a3987000c2fd4dd68a5
 # commit number: Dec 17th, 2014 for new package
 # 33e393a973161e3a29149e82bfda23882b5826f3
-
+import networkx as nx
 from CodonGeneconFunc import *
 import argparse
 from jsonctmctree.extras import optimize_em
