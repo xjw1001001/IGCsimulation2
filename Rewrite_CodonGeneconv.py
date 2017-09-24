@@ -42,10 +42,12 @@ class ReCodonGeneconv:
         codons = [a+b+c for a in bases for b in bases for c in bases]
         amino_acids = 'FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG'
         
-        self.nt_to_state    = {a:i for (i, a) in enumerate('ACGT')}
+        self.nt_to_state    = {a:i for (i, a) in enumerate('ACGT')}  
+        self.state_to_nt    = {i:a for (i, a) in enumerate('ACGT')}
         self.codon_table    = dict(zip(codons, amino_acids))
         self.codon_nonstop  = [a for a in self.codon_table.keys() if not self.codon_table[a]=='*']
         self.codon_to_state = {a.upper() : i for (i, a) in enumerate(self.codon_nonstop)}
+        self.state_to_codon = {i : a.upper() for (i, a) in enumerate(self.codon_nonstop)}
         self.pair_to_state  = {pair:i for i, pair in enumerate(product(self.codon_nonstop, repeat = 2))}
 
         # Tip data related variable
