@@ -1462,29 +1462,17 @@ class ReCodonGeneconv:
                 model = self.Model + '_tau=0'
             else:
                 model = self.Model + '_IGC'
-            
-            if not os.path.isdir('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/'+self.IGC_geo + '_'+self.sim_num + '/'):
-                os.makedirs('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/'+self.IGC_geo + '_'+self.sim_num + '/')
-            if not os.path.isdir('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/'+self.IGC_geo + '_'+self.sim_num + '/'):
-                os.makedirs('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/'+self.IGC_geo + '_'+self.sim_num + '/')
-            np.save('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/'+self.IGC_geo + '_'+self.sim_num + '/' + 'arg_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model+'.npy', argmatrix)
-            np.save('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/'+self.IGC_geo + '_'+self.sim_num + '/' + 'likelihood_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model+'.npy', likelihood_matrix)
-            np.save('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/'+self.IGC_geo + '_'+self.sim_num + '/' + 'marginal_' + self.paralog[0] + '_' +model+'.npy', marginal_states_matrix_1)
-            np.save('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/'+self.IGC_geo + '_'+self.sim_num + '/' + 'marginal_' + self.paralog[1] + '_' +model+'.npy', marginal_states_matrix_2)
-            for node in range(len(self.node_to_num)):    
-                np.savetxt(open('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/'+self.IGC_geo + '_'+self.sim_num + '/' + 'arg_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model + '_node_' + str(node) +'.txt', 'w+'), argmatrix[:,node,:])
-                np.savetxt(open('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/'+self.IGC_geo + '_'+self.sim_num + '/' + 'likelihood_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model + '_node_' + str(node) +'.txt', 'w+'), likelihood_matrix[:,node,:])
-            
+                        
             #save model paramteres
             a = np.array(self.pi+[self.kappa]+[self.omega])
             b = np.array([self.tau])
             c = np.exp(self.x_rates)
-            if not os.path.isdir('./test/Ancestral_reconstruction/parameters/'+self.IGC_geo + '_'+self.sim_num + '/'):
-                os.makedirs('./test/Ancestral_reconstruction/parameters/'+self.IGC_geo + '_'+self.sim_num + '/')
+            if not os.path.isdir('./test/Ancestral_reconstruction/parameters/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/'):
+                os.makedirs('./test/Ancestral_reconstruction/parameters/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/')
 
-            np.savetxt(open('./test/Ancestral_reconstruction/parameters/'+self.IGC_geo + '_'+self.sim_num + '/' + 'transition_model_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt','w+'), a)
-            np.savetxt(open('./test/Ancestral_reconstruction/parameters/'+self.IGC_geo + '_'+self.sim_num + '/' + 'tau_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt','w+'), b)
-            np.savetxt(open('./test/Ancestral_reconstruction/parameters/'+self.IGC_geo + '_'+self.sim_num + '/' + 'branch_length' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt','w+'), c)
+            np.savetxt(open('./test/Ancestral_reconstruction/parameters/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/' + 'transition_model_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt','w+'), a)
+            np.savetxt(open('./test/Ancestral_reconstruction/parameters/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/' + 'tau_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt','w+'), b)
+            np.savetxt(open('./test/Ancestral_reconstruction/parameters/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/' + 'branch_length' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt','w+'), c)
 
             self.get_reconstruction_result(states_matrix, maxprob_number, DNA_or_protein = 'DNA')            
         else:
@@ -1519,10 +1507,10 @@ class ReCodonGeneconv:
                     self.reconstruction_series['data'][nodes_num][self.paralog[0]]+=self.state_to_codon[state_1]
                     self.reconstruction_series['data'][nodes_num][self.paralog[1]]+=self.state_to_codon[state_2]
         
-        if not os.path.isdir('./test/Ancestral_reconstruction/series/'+self.IGC_geo + '_'+self.sim_num + '/'):
-                os.makedirs('./test/Ancestral_reconstruction/series/'+self.IGC_geo + '_'+self.sim_num + '/')
+        if not os.path.isdir('./test/Ancestral_reconstruction/series/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/'):
+                os.makedirs('./test/Ancestral_reconstruction/series/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/')
 
-        filename = open('./test/Ancestral_reconstruction/series/'+self.IGC_geo + '_'+self.sim_num + '/' + 'ancestral_reconstruction_' + self.paralog[0] + '_' + self.paralog[1] + '_' +self.reconstruction_series['model'] + '.fasta' ,'w')
+        filename = open('./test/Ancestral_reconstruction/series/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/' + 'ancestral_reconstruction_' + self.paralog[0] + '_' + self.paralog[1] + '_' +self.reconstruction_series['model'] + '.fasta' ,'w')
         for nodes_num in range(len(self.reconstruction_series['data'])):
             filename.write('>'+self.reconstruction_series['data'][nodes_num]['name']+self.paralog[0]+'\n')
             filename.write(self.reconstruction_series['data'][nodes_num][self.paralog[0]]+'\n')
