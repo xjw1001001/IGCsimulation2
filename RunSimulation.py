@@ -29,10 +29,10 @@ def main(args):
     if not os.path.isdir('./SimulationSummary/' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/'):
         os.makedirs('./SimulationSummary/' + '_'.join(paralog) + '/IGCgeo_' + str(IGC_geo) + '/')
         
-    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name)
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
     
 
-    test.get_mle(False, True, 0, 'BFGS')
+    #test.get_mle(False, True, 0, 'BFGS')
     test.site_reconstruction()
     test.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name)
     
