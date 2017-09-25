@@ -9,6 +9,7 @@ def main(args):
     paralog = [paralog1, paralog2]
     newicktree = './YeastTree.newick'
 
+    tau     = args.tau
     IGC_geo = args.IGC_geo
     sim_num = args.sim_num
 
@@ -41,6 +42,7 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
+    parser.add_argument('--Tau', dest = 'tau', help = 'IGC tau')
     parser.add_argument('--Geo', dest = 'IGC_geo', help = 'IGC tract length parameter')
     parser.add_argument('--sim_num', dest = 'sim_num', help = 'Simulation number')
     
