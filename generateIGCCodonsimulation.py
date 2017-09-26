@@ -152,7 +152,7 @@ if __name__ == '__main__':
     paralog = [paralog1, paralog2]
     newicktree = './ThorntonERaERb.newick'
     num_exon = 310
-    tau_list = [0.0, 1.0, 0.4079238, 3.0,6.0, 10.0, 20.0]
+    tau_list = [0.0, 1.0, 0.27788, 3.0,6.0, 10.0, 20.0]
     IGC_threshold = -0.1
 
     IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
