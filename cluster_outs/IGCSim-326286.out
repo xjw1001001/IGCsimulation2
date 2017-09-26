@@ -1,0 +1,600 @@
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_0/EDN_ECP_MG94_geo_50.0_Sim_0_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_1/EDN_ECP_MG94_geo_50.0_Sim_1_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_2/EDN_ECP_MG94_geo_50.0_Sim_2_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_3/EDN_ECP_MG94_geo_50.0_Sim_3_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_4/EDN_ECP_MG94_geo_50.0_Sim_4_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_5/EDN_ECP_MG94_geo_50.0_Sim_5_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_6/EDN_ECP_MG94_geo_50.0_Sim_6_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_7/EDN_ECP_MG94_geo_50.0_Sim_7_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_8/EDN_ECP_MG94_geo_50.0_Sim_8_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_9/EDN_ECP_MG94_geo_50.0_Sim_9_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_10/EDN_ECP_MG94_geo_50.0_Sim_10_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_11/EDN_ECP_MG94_geo_50.0_Sim_11_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_12/EDN_ECP_MG94_geo_50.0_Sim_12_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_13/EDN_ECP_MG94_geo_50.0_Sim_13_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_14/EDN_ECP_MG94_geo_50.0_Sim_14_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_15/EDN_ECP_MG94_geo_50.0_Sim_15_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_16/EDN_ECP_MG94_geo_50.0_Sim_16_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_17/EDN_ECP_MG94_geo_50.0_Sim_17_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_18/EDN_ECP_MG94_geo_50.0_Sim_18_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_19/EDN_ECP_MG94_geo_50.0_Sim_19_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_20/EDN_ECP_MG94_geo_50.0_Sim_20_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_21/EDN_ECP_MG94_geo_50.0_Sim_21_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_22/EDN_ECP_MG94_geo_50.0_Sim_22_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_23/EDN_ECP_MG94_geo_50.0_Sim_23_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_24/EDN_ECP_MG94_geo_50.0_Sim_24_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_25/EDN_ECP_MG94_geo_50.0_Sim_25_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_26/EDN_ECP_MG94_geo_50.0_Sim_26_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_27/EDN_ECP_MG94_geo_50.0_Sim_27_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_28/EDN_ECP_MG94_geo_50.0_Sim_28_leaf.fasta'
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 94, in initialize_parameters
+    self.get_data()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 171, in get_data
+    seq_dict = SeqIO.to_dict(SeqIO.parse( self.seqloc, "fasta" ))
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 731, in to_dict
+    for record in sequences:
+  File "/usr/local/lib/python2.7/dist-packages/Bio/SeqIO/__init__.py", line 581, in parse
+    with as_handle(handle, mode) as fp:
+  File "/usr/lib/python2.7/contextlib.py", line 17, in __enter__
+    return self.gen.next()
+  File "/usr/local/lib/python2.7/dist-packages/Bio/File.py", line 88, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+IOError: [Errno 2] No such file or directory: './EDN_ECP/tau3.0/IGCgeo_50.0/sim_29/EDN_ECP_MG94_geo_50.0_Sim_29_leaf.fasta'
