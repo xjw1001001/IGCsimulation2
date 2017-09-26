@@ -20,7 +20,7 @@ if __name__ == '__main__':
                 with open('./ShFiles/' + '_'.join(paralog) + '_tau_'+str(tau)+'_IGCgeo_' + str(IGC_geo) + '.sh', 'w+') as g:
                     g.write('#!/bin/bash' + '\n')
                     for num_sim in sim_num_list:
-                        g.write('python RunSimulation.py --Tau '+ str(tau) +  ' --Geo ' + str(IGC_geo) + ' --sim_num ' + str(num_sim) + '\n')
+                        g.write('python RunSimulation.py' +' --P1 '+ str(paralog1) +' --P2 '+ str(paralog2) + ' --Tau '+ str(tau) +  ' --Geo ' + str(IGC_geo) + ' --sim_num ' + str(num_sim) + '\n')
 
     paralog1 = 'EDN'
     paralog2 = 'ECP'
@@ -41,8 +41,7 @@ if __name__ == '__main__':
                 with open('./ShFiles/' + '_'.join(paralog) + '_tau_'+str(tau)+'_IGCgeo_' + str(IGC_geo) + '.sh', 'w+') as g:
                     g.write('#!/bin/bash' + '\n')
                     for num_sim in sim_num_list:
-                        g.write('python RunSimulation.py --Tau '+ str(tau) +  ' --Geo ' + str(IGC_geo) + ' --sim_num ' + str(num_sim) + '\n')
-
+                        g.write('python RunSimulation.py' +' --P1 '+ str(paralog1) +' --P2 '+ str(paralog2) + ' --Tau '+ str(tau) +  ' --Geo ' + str(IGC_geo) + ' --sim_num ' + str(num_sim) + '\n')
     paralog1 = 'ERa'
     paralog2 = 'ERb'
     paralog = [paralog1, paralog2]
@@ -62,8 +61,7 @@ if __name__ == '__main__':
                 with open('./ShFiles/' + '_'.join(paralog) + '_tau_'+str(tau)+'_IGCgeo_' + str(IGC_geo) + '.sh', 'w+') as g:
                     g.write('#!/bin/bash' + '\n')
                     for num_sim in sim_num_list:
-                        g.write('python RunSimulation.py --Tau '+ str(tau) +  ' --Geo ' + str(IGC_geo) + ' --sim_num ' + str(num_sim) + '\n')
-
+                        g.write('python RunSimulation.py' +' --P1 '+ str(paralog1) +' --P2 '+ str(paralog2) + ' --Tau '+ str(tau) +  ' --Geo ' + str(IGC_geo) + ' --sim_num ' + str(num_sim) + '\n')
 
     paralog1 = 'MR'
     paralog2 = 'GR'
@@ -84,8 +82,7 @@ if __name__ == '__main__':
                 with open('./ShFiles/' + '_'.join(paralog) + '_tau_'+str(tau)+'_IGCgeo_' + str(IGC_geo) + '.sh', 'w+') as g:
                     g.write('#!/bin/bash' + '\n')
                     for num_sim in sim_num_list:
-                        g.write('python RunSimulation.py --Tau '+ str(tau) +  ' --Geo ' + str(IGC_geo) + ' --sim_num ' + str(num_sim) + '\n')
-
+                        g.write('python RunSimulation.py' +' --P1 '+ str(paralog1) +' --P2 '+ str(paralog2) + ' --Tau '+ str(tau) +  ' --Geo ' + str(IGC_geo) + ' --sim_num ' + str(num_sim) + '\n')
 
 ##    sh_line = 'sbatch -o IGCSim-%j.out --mail-type=FAIL --mail-user=xji3@ncsu.edu ./ShFiles_multiply3/'
 ##

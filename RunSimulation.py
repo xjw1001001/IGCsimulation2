@@ -4,8 +4,8 @@ import os
 import argparse
 
 def main(args):
-    paralog1 = 'YDR418W'
-    paralog2 = 'YEL054C'
+    paralog1 = args.p1
+    paralog2 = args.p2
     paralog = [paralog1, paralog2]
     newicktree = './YeastTree.newick'
 
@@ -48,6 +48,8 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
+    parser.add_argument('--P1', dest = 'p1', help = 'paralog1')
+    parser.add_argument('--P2', dest = 'p2', help = 'paralog2')
     parser.add_argument('--Tau', dest = 'tau', help = 'IGC tau')
     parser.add_argument('--Geo', dest = 'IGC_geo', help = 'IGC tract length parameter')
     parser.add_argument('--sim_num', dest = 'sim_num', help = 'Simulation number')
