@@ -177,11 +177,11 @@ class TreeIGCCodonSimulator:
         edge_list = []
         for i in range(len(internal_branch)):
             edge_list.append(internal_branch[i])
-            edge_list.append(leaf_branch[i])
-        for j in range(len(leaf_branch[i + 1:])):
-            edge_list.append(leaf_branch[i + 1 + j])
+        for j in range(len(leaf_branch)):
+            edge_list.append(leaf_branch[j])
 
         self.edge_list = edge_list
+        #print edge_list
 
     def unpack_x_rates(self, x_rates):
         for edge_iter in range(len(self.edge_list)):
