@@ -146,4 +146,68 @@ if __name__ == '__main__':
                 except:
                     print 'failed at sim  ' + str(sim_num) + '  IGC_geo = ' + str(IGC_geo)
                     test.write_log()
+                    
+    paralog1 = 'ERa'
+    paralog2 = 'ERb'
+    paralog = [paralog1, paralog2]
+    newicktree = './ThorntonERaERb.newick'
+    num_exon = 310
+    tau_list = [0.0, 1.0, 0.4079238, 10.0, 20.0]
+    IGC_threshold = -0.1
+
+    IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
+    #IGC_geo_list = [3.0]
+    for IGC_geo in IGC_geo_list:
+        for tau in tau_list:
+            IGC_geo_codon = IGC_geo / 3.0
+            IGC_init = tau / IGC_geo_codon
+            x_IGC = [IGC_init, 1.0 / IGC_geo_codon, IGC_threshold]  # These values vary for the simulation study
+            
+            #sim_num = 1
+            for sim_num in range(30):
+                log_folder = './' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/log/'
+                div_folder = './' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/div/'
+    
+                # Now create folder if they don't exist
+                
+                if not os.path.isdir('./' + '_'.join(paralog) + '/tau'+ str(tau) + '/IGCgeo_' + str(IGC_geo) + '/'):
+                    os.makedirs('./' + '_'.join(paralog) + '/tau'+ str(tau) + '/IGCgeo_' + str(IGC_geo) + '/')
+    
+                if not os.path.isdir('./' + '_'.join(paralog) + '/tau'+ str(tau) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'):
+                    os.makedirs('./' + '_'.join(paralog) + '/tau'+ str(tau) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/')
+    
+                if not os.path.isdir(log_folder):
+                    os.makedirs(log_folder)
+    
+                if not os.path.isdir(div_folder):
+                    os.makedirs(div_folder)
+    
+                
+                seq_file = './' + '_'.join(paralog) + '/tau'+ str(tau) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + '_'.join(paralog) + '_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '.fasta'
+                log_file = './' + '_'.join(paralog) + '/tau'+ str(tau) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + '_'.join(paralog) + '_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '.log'
+    
+                save_file = './save/MG94_' + '_'.join(paralog) + '_nonclock_save.txt'
+    
+                #x_exon = [0.49249355302375575, 0.60985035555249456, 0.42155795722934408, 8.1662933909645563, 0.092804167727196338]
+                [pi_a,pi_c,pi_g,pi_t,kappa,omega]=[0.2170714117031952,
+                                                     0.29568916383769184,
+                                                     0.28354385627921275,
+                                                     0.20369556817990023,
+                                                     1.9064363361739103,
+                                                     0.27617358730655541]#0.07617358730655541
+                x_exon = [pi_a + pi_g, pi_a / (pi_a + pi_g), pi_c / (pi_c + pi_t), kappa, omega]  # parameter from MG94_YDR418W_YEL054C_nonclock_summary.txt
+
+                #cc = {akey[i]:avalue[i] for i in range(len(akey))}   
+                # bb = [cc[i] for i in b]
+                save_file = './save/MG94_' + '_'.join(paralog) + '_nonclock_save.txt'
+                x_rates = np.array([0.8078797759350917, 0.7907469852126532, 0.6380568187603329, 0.16134985943814728, 0.25828192353500096, 0.18897733989396742, 0.0028000090411836455, 0.4756967056541251, 0.20288238122081748, 0.20638849479219384, 0.30802527677786434, 0.4390494944806729, 0.07218239329460224, 0.03032528609934204, 5.404106008091292, 0.463523405702731, 0.143696737956612, 0.3137954895063944, 0.06256580618298248, 0.016935030009915572, 0.4962560207474495, 0.4290286230158284, 0.3470923161901951, 0.6634417040326285, 0.05107702867371775, 0.018278866996082287, 0.08555949996275779, 0.12693773714550619, 0.1463793073824961, 0.31875999896962465])
+                seed =    sim_num + 10000     
+        
+                test = TreeIGCCodonSimulator(num_exon, newicktree, paralog, seq_file, log_file, x_exon, x_IGC, log_folder, div_folder, seed)
+                test.unpack_x_rates(x_rates)
+                try:
+                    test.sim()
+                except:
+                    print 'failed at sim  ' + str(sim_num) + '  IGC_geo = ' + str(IGC_geo)
+                    test.write_log()
 
