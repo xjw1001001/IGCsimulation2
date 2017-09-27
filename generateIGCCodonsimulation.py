@@ -1,6 +1,8 @@
+# -*- coding: UTF-8 -*-
+
 from IGCCodonSimTree import *
 import os
-#-*- coding:utf-8 -*-
+
 
 # This file is used to generate simulation data
 # Xiang Ji
