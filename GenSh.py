@@ -45,7 +45,7 @@ if __name__ == '__main__':
     paralog1 = 'ERa'
     paralog2 = 'ERb'
     paralog = [paralog1, paralog2]
-    tau_list = [0.0, 1.0, 0.27788, 3.0,6.0, 10.0, 20.0]
+    tau_list = [0.0, 0.5,1.0, 0.27788]
     IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
     sim_num_list = range(30)
 
@@ -66,7 +66,7 @@ if __name__ == '__main__':
     paralog1 = 'MR'
     paralog2 = 'GR'
     paralog = [paralog1, paralog2]
-    tau_list = [0.0, 1.0, 0.1630137, 3.0,6.0, 10.0, 20.0]
+    tau_list = [0.0, 0.5,1.0, 0.1630137]
     IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
     sim_num_list = range(30)
 
