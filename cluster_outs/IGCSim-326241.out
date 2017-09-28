@@ -1,2 +1,153 @@
 /home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py:319: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
   if not x == None:
+number of sites to be analyzed:  163
+Successfully loaded parameter value from ./SimulationSave/YDR418W_YEL054C/tau10.0/IGCgeo_50.0/YDR418W_YEL054C_MG94_geo_50.0_Sim_0_save.txt
+      fun: 1834.8321680962538
+ hess_inv: <18x18 LbfgsInvHessProduct with dtype=float64>
+      jac: array([ 0.00875389, -0.00104592, -0.0017053 , -0.00184173,  0.0017053 ,
+        0.00252385,  0.00249938,  0.00011345, -0.00334161,  0.00362896,
+       -0.00192489, -0.00105397,  0.00203721,  0.00106308,  0.00063222,
+       -0.00131109,  0.0020408 ,  0.00089068])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 37
+      nit: 34
+   status: 0
+  success: True
+        x: array([-0.76851486, -0.53508413, -0.83295675,  2.17607563, -0.33791723,
+        2.26880531, -1.49876377, -8.9867256 , -1.34673518, -1.72932092,
+       -4.19911372, -3.26343721, -2.80319308, -2.47668637, -3.45242512,
+       -2.57402431, -3.05502757, -4.60780455])
+number of sites to be analyzed:  163
+Successfully loaded parameter value from ./SimulationSave/YDR418W_YEL054C/tau10.0/IGCgeo_50.0/YDR418W_YEL054C_MG94_geo_50.0_Sim_0_save.txt
+Traceback (most recent call last):
+  File "RunSimulation.py", line 57, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 43, in main
+    test2.get_mle(False, True, 0, 'BFGS')
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 913, in get_mle
+    result = scipy.optimize.minimize(f, guess_x, jac = True, method = 'L-BFGS-B', bounds = bnds)
+  File "/usr/local/lib/python2.7/dist-packages/scipy/optimize/_minimize.py", line 450, in minimize
+    callback=callback, **options)
+  File "/usr/local/lib/python2.7/dist-packages/scipy/optimize/lbfgsb.py", line 328, in _minimize_lbfgsb
+    f, g = func_and_grad(x)
+  File "/usr/local/lib/python2.7/dist-packages/scipy/optimize/lbfgsb.py", line 278, in func_and_grad
+    f = fun(x, *args)
+  File "/usr/local/lib/python2.7/dist-packages/scipy/optimize/optimize.py", line 292, in function_wrapper
+    return function(*(wrapper_args + args))
+  File "/usr/local/lib/python2.7/dist-packages/scipy/optimize/optimize.py", line 63, in __call__
+    fg = self.fun(x, *args)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 772, in objective_and_gradient
+    f, g = self.loglikelihood_and_gradient(display = display)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 690, in loglikelihood_and_gradient
+    ll, edge_derivs = fn(edge_derivative = True)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 638, in _loglikelihood2
+    j_out = jsonctmctree.interface.process_json_in(j_in)
+  File "/home3/jxiong7/.local/lib/python2.7/site-packages/jsonctmctree/interface.py", line 130, in process_json_in
+    return impl_v2.process_json_in(j_in, debug=debug)
+  File "/home3/jxiong7/.local/lib/python2.7/site-packages/jsonctmctree/impl_v2.py", line 702, in process_json_in
+    return Reactor(toplevel.scene, debug=debug).main(toplevel.requests)
+  File "/home3/jxiong7/.local/lib/python2.7/site-packages/jsonctmctree/impl_v2.py", line 687, in main
+    self.react(requests, responses)
+  File "/home3/jxiong7/.local/lib/python2.7/site-packages/jsonctmctree/impl_v2.py", line 666, in react
+    if self._create_node_to_conditional_likelihoods(unmet_core_requests):
+  File "/home3/jxiong7/.local/lib/python2.7/site-packages/jsonctmctree/impl_v2.py", line 308, in _create_node_to_conditional_likelihoods
+    self.scene.observed_data.iid_observations,
+  File "/home3/jxiong7/.local/lib/python2.7/site-packages/jsonctmctree/common_likelihood.py", line 252, in get_conditional_likelihoods
+    arr = expm_objects[edge_process].expm_mul(edge_rate, arr)
+  File "/home3/jxiong7/.local/lib/python2.7/site-packages/jsonctmctree/expm_helpers.py", line 177, in expm_mul
+    return P.dot(A)
+  File "/home3/jxiong7/.local/lib/python2.7/site-packages/jsonctmctree/pyexp/basic_ops.py", line 25, in dot
+    return self._matmat(other)
+  File "/home3/jxiong7/.local/lib/python2.7/site-packages/jsonctmctree/pyexp/ctmc_ops.py", line 311, in _matmat
+    return self._P._parameterized_matmat(self._t, B)
+  File "/home3/jxiong7/.local/lib/python2.7/site-packages/jsonctmctree/pyexp/ctmc_ops.py", line 264, in _parameterized_matmat
+    self._A, self._mu, self._forward_iteration_stash, t, B)
+  File "/home3/jxiong7/.local/lib/python2.7/site-packages/jsonctmctree/pyexp/ctmc_ops.py", line 180, in _expm_product_helper
+    for i in range(s):
+OverflowError: range() result has too many items
+/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py:319: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+  if not x == None:
+number of sites to be analyzed:  163
+Successfully loaded parameter value from ./SimulationSave/YDR418W_YEL054C/tau10.0/IGCgeo_50.0/YDR418W_YEL054C_MG94_geo_50.0_Sim_1_save.txt
+      fun: 1631.1579525020657
+ hess_inv: <18x18 LbfgsInvHessProduct with dtype=float64>
+      jac: array([ -2.39424480e-02,  -1.00044417e-03,   1.81898940e-04,
+        -3.18323146e-03,  -5.68434189e-04,   2.09183781e-03,
+         3.05116773e-05,   8.99195340e-03,   7.18380137e-03,
+        -4.12871759e-03,  -3.27126193e-13,  -3.29623617e-04,
+         5.82755188e-03,   1.83665190e-03,   2.24511734e-03,
+         5.74788481e-03,   5.27191388e-03,   2.81509058e-03])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 3
+      nit: 1
+   status: 0
+  success: True
+        x: array([ -0.67688363,  -0.48014305,  -0.88570675,   2.38368427,
+        -0.16805222,   2.58696553, -11.07355971,  -1.47536842,
+        -1.6882957 ,  -1.89263118, -31.75032828,  -3.3470406 ,
+        -2.82829105,  -2.06214673,  -3.40624399,  -3.03874766,
+        -3.87354129,  -3.81527349])
+number of sites to be analyzed:  163
+Successfully loaded parameter value from ./SimulationSave/YDR418W_YEL054C/tau10.0/IGCgeo_50.0/YDR418W_YEL054C_MG94_geo_50.0_Sim_1_save.txt
+      fun: 1934.8782086390174
+ hess_inv: <18x18 LbfgsInvHessProduct with dtype=float64>
+      jac: array([ -1.10048859e-02,  -1.81898940e-03,   3.18323146e-04,
+         1.81898940e-04,   3.36513040e-03,  -0.00000000e+00,
+         4.56861018e-03,  -1.51754418e-03,  -2.71764210e-03,
+        -2.47986977e-03,  -5.54611882e-12,  -1.44986175e-03,
+         4.74205250e-03,   8.98503813e-04,   4.86525767e-03,
+        -2.54772141e-03,   4.42155945e-03,   1.55271842e-03])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 29
+      nit: 25
+   status: 0
+  success: True
+        x: array([ -0.6554412 ,  -0.49159842,  -0.88579725,   2.38355679,
+        -0.16284741,   2.58696553, -11.07560612,  -1.43075054,
+        -1.77324346,  -2.00759301, -31.75032828,  -2.91636876,
+        -2.73149898,  -1.84807309,  -3.68348559,  -2.34224289,
+        -3.57378795,  -3.82572938])
+/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py:319: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+  if not x == None:
+number of sites to be analyzed:  163
+Successfully loaded parameter value from ./SimulationSave/YDR418W_YEL054C/tau10.0/IGCgeo_50.0/YDR418W_YEL054C_MG94_geo_50.0_Sim_2_save.txt
+      fun: 1792.0152311446634
+ hess_inv: <18x18 LbfgsInvHessProduct with dtype=float64>
+      jac: array([  7.20774551e-03,  -9.66338121e-03,   7.50333129e-04,
+        -1.75077730e-03,  -5.25233190e-03,  -8.20818968e-03,
+         4.56538926e-05,   9.29116409e-03,   3.87009679e-04,
+         5.42915381e-03,  -3.98244796e-03,   4.79293208e-03,
+         6.57239783e-03,   6.64272168e-04,  -1.21527327e-03,
+         2.00046499e-03,   5.90586331e-04,   9.12819409e-03])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 4
+      nit: 2
+   status: 0
+  success: True
+        x: array([ -0.64845728,  -0.56541091,  -0.77414967,   2.03452847,
+         0.15252841,   2.28427731, -11.56034967,  -1.44286875,
+        -1.96001961,  -1.63823193,  -3.82751423,  -3.23924927,
+        -3.44949797,  -2.1712717 ,  -3.84174355,  -2.88333991,
+        -2.84268044,  -2.88430639])
+number of sites to be analyzed:  163
+Successfully loaded parameter value from ./SimulationSave/YDR418W_YEL054C/tau10.0/IGCgeo_50.0/YDR418W_YEL054C_MG94_geo_50.0_Sim_2_save.txt
+      fun: 2197.08294324715
+ hess_inv: <18x18 LbfgsInvHessProduct with dtype=float64>
+      jac: array([ -9.09494702e-05,  -1.81898940e-04,   9.36779543e-03,
+        -2.59205990e-03,   3.91082722e-03,  -0.00000000e+00,
+         2.90203560e-03,  -7.79473609e-04,   4.41144612e-03,
+         4.15139816e-03,  -1.76613453e-03,  -6.70568938e-03,
+        -2.71811521e-04,  -6.44691084e-04,   7.28503947e-04,
+         3.15224591e-04,  -2.55996571e-03,   5.82404566e-04])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 29
+      nit: 27
+   status: 0
+  success: True
+        x: array([ -0.65108551,  -0.54468843,  -0.79688118,   2.05678978,
+         0.15777716,   2.28427731, -11.56165808,  -1.35554942,
+        -2.34408641,  -1.65546995,  -3.36202253,  -2.73390591,
+        -2.95365338,  -1.87392601,  -3.16996277,  -2.60298387,
+        -2.49938576,  -2.46643291])
+/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py:319: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+  if not x == None:
