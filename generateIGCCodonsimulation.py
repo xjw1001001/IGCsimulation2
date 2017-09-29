@@ -154,10 +154,10 @@ if __name__ == '__main__':
     paralog = [paralog1, paralog2]
     newicktree = './ThorntonERaERb.newick'
     num_exon = 310
-    tau_list = [0.0, 0.5,1.0, 0.27788]
+    tau_list = [0.0]#[0.0, 0.5,1.0, 0.27788]
     IGC_threshold = -0.1
 
-    IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
+    IGC_geo_list = [3.0]#[3.0, 10.0, 50.0, 100.0, 500.0]
     #IGC_geo_list = [3.0]
     for IGC_geo in IGC_geo_list:
         for tau in tau_list:
@@ -166,7 +166,7 @@ if __name__ == '__main__':
             x_IGC = [IGC_init, 1.0 / IGC_geo_codon, IGC_threshold]  # These values vary for the simulation study
             
             #sim_num = 1
-            for sim_num in range(30):
+            for sim_num in range(3):
                 log_folder = './' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/log/'
                 div_folder = './' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/div/'
     
@@ -212,7 +212,7 @@ if __name__ == '__main__':
                 except:
                     print 'failed at sim  ' + str(sim_num) + '  IGC_geo = ' + str(IGC_geo)
                     test.write_log()
-
+'''
     paralog1 = 'MR'
     paralog2 = 'GR'
     paralog = [paralog1, paralog2]
@@ -278,4 +278,4 @@ if __name__ == '__main__':
                     test.sim()
                 except:
                     print 'failed at sim  ' + str(sim_num) + '  IGC_geo = ' + str(IGC_geo)
-                    test.write_log()
+                    test.write_log()'''
