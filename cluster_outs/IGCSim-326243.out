@@ -324,3 +324,415 @@ Successfully loaded parameter value from ./SimulationSave/YDR418W_YEL054C/tau10.
         -4.39791049e+00,  -2.90147634e+00,  -3.05752420e+00])
 /home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py:319: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
   if not x == None:
+number of sites to be analyzed:  163
+      fun: 1661.9249462469493
+ hess_inv: <18x18 LbfgsInvHessProduct with dtype=float64>
+      jac: array([ 0.0082764 ,  0.00704858, -0.00322871,  0.00582077,  0.01814442,
+        0.00886757,  0.00235346, -0.009785  , -0.01024612, -0.00262269,
+       -0.00611009,  0.00283   , -0.00538602,  0.00537132,  0.00043471,
+        0.00074916,  0.00493297, -0.00063965])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 50
+      nit: 44
+   status: 0
+  success: True
+        x: array([-0.7387777 , -0.4418433 , -0.8394752 ,  2.5020491 ,  0.22004629,
+        2.65031793, -2.17252974, -1.89141493, -1.72891468, -1.61679082,
+       -3.85889535, -3.55962101, -3.78985665, -2.79264579, -4.55412266,
+       -2.21298499, -2.55282158, -2.87950463])
+number of sites to be analyzed:  163
+Successfully loaded parameter value from ./SimulationSave/YDR418W_YEL054C/tau10.0/IGCgeo_500.0/YDR418W_YEL054C_MG94_geo_500.0_Sim_8_save.txt
+      fun: 2078.5419302281857
+ hess_inv: <18x18 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-0.13910721, -0.06189111, -0.02551133,  0.01832632, -0.02523848,
+       -0.        ,  0.00022735,  0.00327231, -0.00372972, -0.00463077,
+        0.017195  , -0.00499597,  0.00034761,  0.00424001, -0.01764971,
+       -0.01532588,  0.00286341,  0.00986274])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 52
+      nit: 49
+   status: 0
+  success: True
+        x: array([ -0.75327451,  -0.44884748,  -0.8588757 ,   2.46840482,
+         0.18340684,   2.65031793, -14.07186291,  -1.33363874,
+        -1.85032453,  -1.54808768,  -3.56666522,  -3.19577196,
+        -3.43998347,  -2.65309514,  -3.71336248,  -2.34212726,
+        -2.64178067,  -2.08820256])
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 33, in main
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 89, in __init__
+    self.initialize_parameters()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 93, in initialize_parameters
+    self.get_tree()
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 106, in get_tree
+    tree = Phylo.read( self.newicktree, "newick")
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 63, in read
+    tree = next(tree_gen)
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/_io.py", line 51, in parse
+    for tree in getattr(supported_formats[format], 'parse')(fp, **kwargs):
+  File "/usr/local/lib/python2.7/dist-packages/Bio/Phylo/NewickIO.py", line 107, in parse
+    for line in self.handle:
+TypeError: 'NoneType' object is not iterable
