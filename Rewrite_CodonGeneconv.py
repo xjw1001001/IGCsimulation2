@@ -1463,17 +1463,6 @@ class ReCodonGeneconv:
             else:
                 model = self.Model + '_IGC'
                         
-            #save model paramteres
-            a = np.array(self.pi+[self.kappa]+[self.omega])
-            b = np.array([self.tau])
-            c = np.exp(self.x_rates)
-            if not os.path.isdir('./test/Ancestral_reconstruction/parameters/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/'):
-                os.makedirs('./test/Ancestral_reconstruction/parameters/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/')
-
-            np.savetxt(open('./test/Ancestral_reconstruction/parameters/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/' + 'transition_model_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt','w+'), a)
-            np.savetxt(open('./test/Ancestral_reconstruction/parameters/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/' + 'tau_' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt','w+'), b)
-            np.savetxt(open('./test/Ancestral_reconstruction/parameters/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/' + 'branch_length' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt','w+'), c)
-
             self.get_reconstruction_result(states_matrix, maxprob_number, DNA_or_protein = 'DNA')            
         else:
             print ('Need to implement this for old package')
