@@ -14,7 +14,7 @@ import os
 #import matplotlib.pyplot as plt
 
 class ReCodonGeneconv:
-    def __init__(self, tree_newick, alignment, paralog, Model = 'MG94', nnsites = None, clock = False, Force = None, save_path = './save/', save_name = None,IGC_geo = 3.0, sim_num = 0):
+    def __init__(self, tree_newick, alignment, paralog, Model = 'MG94', nnsites = None, clock = False, Force = None, save_path = './save/', save_name = None,IGC_geo = 3.0, sim_num = 0,realtau = 0.0):
         self.newicktree  = tree_newick  # newick tree file loc
         self.seqloc      = alignment    # multiple sequence alignment, now need to remove gap before-hand
         self.paralog     = paralog      # parlaog list
@@ -28,6 +28,7 @@ class ReCodonGeneconv:
         self.auto_save   = 0            # auto save control
         self.IGC_geo     = IGC_geo
         self.sim_num     = sim_num
+        self.realtau     = realtau
 
         self.logzero     = -15.0        # used to avoid log(0), replace log(0) with -15
         self.infinity    = 1e6          # used to avoid -inf in gradiance calculation of the clock case
@@ -1496,10 +1497,10 @@ class ReCodonGeneconv:
                     self.reconstruction_series['data'][nodes_num][self.paralog[0]]+=self.state_to_codon[state_1]
                     self.reconstruction_series['data'][nodes_num][self.paralog[1]]+=self.state_to_codon[state_2]
         
-        if not os.path.isdir('./test/Ancestral_reconstruction/series/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/'):
-                os.makedirs('./test/Ancestral_reconstruction/series/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/')
+        if not os.path.isdir('./test/Ancestral_reconstruction/series/'+ '_'.join(self.paralog) + '/tau'+ str(self.realtau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/'):
+                os.makedirs('./test/Ancestral_reconstruction/series/'+ '_'.join(self.paralog) +'/tau'+ str(self.realtau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/')
 
-        filename = open('./test/Ancestral_reconstruction/series/'+'tau'+ str(self.tau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/' + 'ancestral_reconstruction_' + self.paralog[0] + '_' + self.paralog[1] + '_' +self.reconstruction_series['model'] + '.fasta' ,'w')
+        filename = open('./test/Ancestral_reconstruction/series/'+ '_'.join(self.paralog) +'/tau'+ str(self.realtau) +'/IGCgeo_' + str(self.IGC_geo) + '/sim_' + str(self.sim_num) + '/' + 'ancestral_reconstruction_' + self.paralog[0] + '_' + self.paralog[1] + '_' +self.reconstruction_series['model'] + '.fasta' ,'w')
         for nodes_num in range(len(self.reconstruction_series['data'])):
             filename.write('>'+self.reconstruction_series['data'][nodes_num]['name']+self.paralog[0]+'\n')
             filename.write(self.reconstruction_series['data'][nodes_num][self.paralog[0]]+'\n')

@@ -30,14 +30,14 @@ def main(args):
     if not os.path.isdir('./SimulationSummary/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/'):
         os.makedirs('./SimulationSummary/' + '_'.join(paralog) +'/tau'+ str(tau) + '/IGCgeo_' + str(IGC_geo) + '/')
         
-    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+    test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num,realtau = tau)
     
 
     #test.get_mle(False, True, 0, 'BFGS')
     test.site_reconstruction()
     test.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name)
     
-    test2 = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = {5:0.0}, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num)
+    test2 = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = {5:0.0}, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num,realtau = tau)
     
 
     #test2.get_mle(False, True, 0, 'BFGS')
