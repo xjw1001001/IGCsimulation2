@@ -282,4 +282,4 @@ if __name__ == '__main__':
                     test.sim()
                 except:
                     print 'failed at sim  ' + str(sim_num) + '  IGC_geo = ' + str(IGC_geo)
-                    test.write_log()'''
+                    test.write_log()
