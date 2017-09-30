@@ -11,7 +11,7 @@ import os
 # again, I am too lazy and I know it...
 
 if __name__ == '__main__':
-    '''
+    
     # constants in the simulation
     # mostly from  inference with IGC expansion see MG94_YDR418W_YEL054C_nonclock_summary.txt
     paralog1 = 'YDR418W'
@@ -77,7 +77,7 @@ if __name__ == '__main__':
                 except:
                     print 'failed at sim  ' + str(sim_num) + '  IGC_geo = ' + str(IGC_geo)
                     test.write_log()
-     ''''''
+
     paralog1 = 'EDN'
     paralog2 = 'ECP'
     paralog = [paralog1, paralog2]
@@ -148,7 +148,7 @@ if __name__ == '__main__':
                 except:
                     print 'failed at sim  ' + str(sim_num) + '  IGC_geo = ' + str(IGC_geo)
                     test.write_log()
-      '''              
+            
     paralog1 = 'ERa'
     paralog2 = 'ERb'
     paralog = [paralog1, paralog2]
@@ -212,7 +212,7 @@ if __name__ == '__main__':
                 except:
                     print 'failed at sim  ' + str(sim_num) + '  IGC_geo = ' + str(IGC_geo)
                     test.write_log()
-'''
+
     paralog1 = 'MR'
     paralog2 = 'GR'
     paralog = [paralog1, paralog2]
