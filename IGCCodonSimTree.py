@@ -18,7 +18,7 @@ import cPickle
 
 class TreeIGCCodonSimulator:
     def __init__(self, num_exon, newick_tree, paralog, seq_file, log_file,
-                 x_exon, x_IGC, log_folder, div_folder, seed_number):
+                 x_exon, x_IGC, log_folder, div_folder, seed_number, outgroup):
         self.newicktree   = newick_tree
         self.num_exon     = num_exon
         self.pair         = paralog
@@ -29,7 +29,7 @@ class TreeIGCCodonSimulator:
         self.node_to_num  = None
         self.num_to_node  = None
         self.edge_list    = None
-        self.outgroup     = [('N0', 'kluyveri')]  #TODO: I am so lazy
+        self.outgroup     = outgroup  #TODO: I am so lazy
 
         # Node sequence
         self.node_to_sequence = None

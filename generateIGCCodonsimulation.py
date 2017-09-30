@@ -17,6 +17,7 @@ if __name__ == '__main__':
     paralog1 = 'YDR418W'
     paralog2 = 'YEL054C'
     paralog = [paralog1, paralog2]
+    outgroup = [('N0', 'kluyveri')]
     newicktree = './YeastTree.newick'
     num_exon = 163
     tau_list = [0.0, 1.0, 1.409408, 10.0, 20.0]
@@ -70,7 +71,7 @@ if __name__ == '__main__':
                            -3.438639957077882059, -2.460890888502840657, -3.690966112631306473, -2.870638256407853639, -2.844813362532052192, -3.822236386160084542])
                 seed =    sim_num + 10000     
         
-                test = TreeIGCCodonSimulator(num_exon, newicktree, paralog, seq_file, log_file, x_exon, x_IGC, log_folder, div_folder, seed)
+                test = TreeIGCCodonSimulator(num_exon, newicktree, paralog, seq_file, log_file, x_exon, x_IGC, log_folder, div_folder, seed,outgroup)
                 test.unpack_x_rates(x_rates)
                 try:
                     test.sim()
@@ -81,6 +82,7 @@ if __name__ == '__main__':
     paralog1 = 'EDN'
     paralog2 = 'ECP'
     paralog = [paralog1, paralog2]
+    outgroup = [('N0', 'Saguinus_oedipus')]
     newicktree = './primate_EDN_ECP.newick'
     num_exon = 156
     tau_list = [0.0, 1.0, 0.4079238, 3.0,6.0,10.0, 20.0]
@@ -141,7 +143,7 @@ if __name__ == '__main__':
                                     0.01699842377528958, 0.008462328496304105, 0.014185585255067459])
                 seed =    sim_num + 10000     
         
-                test = TreeIGCCodonSimulator(num_exon, newicktree, paralog, seq_file, log_file, x_exon, x_IGC, log_folder, div_folder, seed)
+                test = TreeIGCCodonSimulator(num_exon, newicktree, paralog, seq_file, log_file, x_exon, x_IGC, log_folder, div_folder, seed,outgroup)
                 test.unpack_x_rates(x_rates)
                 try:
                     test.sim()
@@ -152,6 +154,7 @@ if __name__ == '__main__':
     paralog1 = 'ERa'
     paralog2 = 'ERb'
     paralog = [paralog1, paralog2]
+    outgroup = [('N0', 'Branchiostoma_floridae')]
     newicktree = './ThorntonERaERb.newick'
     num_exon = 310
     tau_list = [0.0]#[0.0, 0.5,1.0, 0.27788]
@@ -205,7 +208,7 @@ if __name__ == '__main__':
                 x_rates = np.array([0.8078797759350917, 0.7907469852126532, 0.6380568187603329, 0.16134985943814728, 0.25828192353500096, 0.18897733989396742, 0.0028000090411836455, 0.4756967056541251, 0.20288238122081748, 0.20638849479219384, 0.30802527677786434, 0.4390494944806729, 0.07218239329460224, 0.03032528609934204, 5.404106008091292, 0.463523405702731, 0.143696737956612, 0.3137954895063944, 0.06256580618298248, 0.016935030009915572, 0.4962560207474495, 0.4290286230158284, 0.3470923161901951, 0.6634417040326285, 0.05107702867371775, 0.018278866996082287, 0.08555949996275779, 0.12693773714550619, 0.1463793073824961, 0.31875999896962465])
                 seed =    sim_num + 10000     
         
-                test = TreeIGCCodonSimulator(num_exon, newicktree, paralog, seq_file, log_file, x_exon, x_IGC, log_folder, div_folder, seed)
+                test = TreeIGCCodonSimulator(num_exon, newicktree, paralog, seq_file, log_file, x_exon, x_IGC, log_folder, div_folder, seed,outgroup)
                 test.unpack_x_rates(x_rates)
                 try:
                     test.sim()
@@ -215,6 +218,7 @@ if __name__ == '__main__':
 
     paralog1 = 'MR'
     paralog2 = 'GR'
+    outgroup = [('N0', 'Aplysia_californica')]
     paralog = [paralog1, paralog2]
     newicktree = './Thornton MRGRARPR.newick'
     num_exon = 342
@@ -272,7 +276,7 @@ if __name__ == '__main__':
                                  0.15554041100814398, 0.13742806331482885, 0.09068147404529761, 0.08016059317911103, 0.05539654982103279, 0.031024603497229703])
                 seed =    sim_num + 10000     
         
-                test = TreeIGCCodonSimulator(num_exon, newicktree, paralog, seq_file, log_file, x_exon, x_IGC, log_folder, div_folder, seed)
+                test = TreeIGCCodonSimulator(num_exon, newicktree, paralog, seq_file, log_file, x_exon, x_IGC, log_folder, div_folder, seed,outgroup)
                 test.unpack_x_rates(x_rates)
                 try:
                     test.sim()
