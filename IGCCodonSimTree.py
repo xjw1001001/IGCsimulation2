@@ -200,6 +200,7 @@ class TreeIGCCodonSimulator:
             num_exon = self.num_exon
             x_exon = self.x_exon
             x_IGC  = deepcopy(self.x_IGC)
+            
             log_file = self.log_folder + '_'.join(edge) + '_log.log'
             div_file = self.div_folder + '_'.join(edge) + '_div.log'
             starting_seq = self.node_to_sequence[edge[0]]
@@ -222,6 +223,7 @@ class TreeIGCCodonSimulator:
             self.total_IGC_changes += self.OneBranchSimulator.IGC_change_sites
 
         self.output_seq()
+        
         self.get_log()
         self.write_log()
 
