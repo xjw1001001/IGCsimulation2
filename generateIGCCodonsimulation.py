@@ -150,7 +150,7 @@ if __name__ == '__main__':
                 except:
                     print 'failed at sim  ' + str(sim_num) + '  IGC_geo = ' + str(IGC_geo)
                     test.write_log()
-            '''
+            ''''''
     paralog1 = 'ERa'
     paralog2 = 'ERb'
     paralog = [paralog1, paralog2]
@@ -215,7 +215,7 @@ if __name__ == '__main__':
                 except:
                     print 'failed at sim  ' + str(sim_num) + '  IGC_geo = ' + str(IGC_geo)
                     test.write_log()
-
+'''
     paralog1 = 'MR'
     paralog2 = 'GR'
     outgroup = [('N0', 'Aplysia_californica')]

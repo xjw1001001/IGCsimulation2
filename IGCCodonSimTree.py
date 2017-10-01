@@ -249,7 +249,7 @@ class TreeIGCCodonSimulator:
                 else:  # only observe one paralog of the outgroup species
                     paralog = self.pair[0]
                     f.write('>' + node + paralog + '\n')
-                    f.write(self.node_to_sequence[node][paralog_counter] + '\n')
+                    f.write(self.node_to_sequence[node][0] + '\n')
         
         with open(self.seq_file[:-6] + '_leaf.fasta', 'w+') as f:
             for node in self.leaves:
@@ -261,7 +261,7 @@ class TreeIGCCodonSimulator:
                 else:  # only observe one paralog of the outgroup species
                     paralog = self.pair[0]
                     f.write('>' + node + paralog + '\n')
-                    f.write(self.node_to_sequence[node][paralog_counter] + '\n')
+                    f.write(self.node_to_sequence[node][0] + '\n')
 
     def get_log(self):
         with open(self.log_file, 'w+') as f:
