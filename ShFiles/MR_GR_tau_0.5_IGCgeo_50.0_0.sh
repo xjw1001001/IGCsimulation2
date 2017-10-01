@@ -1,0 +1,6 @@
+#!/bin/bash
+python RunSimulation.py --P1 MR --P2 GR --Tau 0.5 --treefile ./Thornton_MRGRARPR.newick --Geo 50.0 --sim_num 0
+python RunSimulation.py --P1 MR --P2 GR --Tau 0.5 --treefile ./Thornton_MRGRARPR.newick --Geo 50.0 --sim_num 1
+python RunSimulation.py --P1 MR --P2 GR --Tau 0.5 --treefile ./Thornton_MRGRARPR.newick --Geo 50.0 --sim_num 2
+python RunSimulation.py --P1 MR --P2 GR --Tau 0.5 --treefile ./Thornton_MRGRARPR.newick --Geo 50.0 --sim_num 3
+python RunSimulation.py --P1 MR --P2 GR --Tau 0.5 --treefile ./Thornton_MRGRARPR.newick --Geo 50.0 --sim_num 4
