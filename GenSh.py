@@ -63,12 +63,12 @@ if __name__ == '__main__':
         IGC_geo_sh_file = './' + '_'.join(paralog) + '_tau_'+str(tau)+ '.sh'
         with open(IGC_geo_sh_file, 'w+') as f:
             f.write('#!/bin/bash' + '\n')
-            for i in range(len(sim_num_list)/15):
+            for i in range(len(sim_num_list)/30):
                 for IGC_geo in IGC_geo_list: 
                     f.write(sh_line + '_'.join(paralog) + '_tau_'+str(tau)+'_IGCgeo_' + str(IGC_geo)+'_' + str(i) + '.sh \n')
                     with open('./ShFiles/' + '_'.join(paralog) + '_tau_'+str(tau)+'_IGCgeo_' + str(IGC_geo)+'_' + str(i) + '.sh', 'w+') as g:
                         g.write('#!/bin/bash' + '\n')
-                        for num_sim in sim_num_list[i*15:(i+1)*15]:
+                        for num_sim in sim_num_list[i*30:(i+1)*30]:
                             g.write('python RunSimulation.py' +' --P1 '+ str(paralog1) +' --P2 '+ str(paralog2) + ' --Tau '+ str(tau) + ' --treefile '+ str(treefile) +  ' --Geo ' + str(IGC_geo) + ' --sim_num ' + str(num_sim) + '\n')
 
     paralog1 = 'MR'
@@ -86,12 +86,12 @@ if __name__ == '__main__':
         IGC_geo_sh_file = './' + '_'.join(paralog) + '_tau_'+str(tau)+ '.sh'
         with open(IGC_geo_sh_file, 'w+') as f:
             f.write('#!/bin/bash' + '\n')
-            for i in range(len(sim_num_list)/15):
+            for i in range(len(sim_num_list)/30):
                 for IGC_geo in IGC_geo_list: 
                     f.write(sh_line + '_'.join(paralog) + '_tau_'+str(tau)+'_IGCgeo_' + str(IGC_geo)+'_' + str(i) + '.sh \n')
                     with open('./ShFiles/' + '_'.join(paralog) + '_tau_'+str(tau)+'_IGCgeo_' + str(IGC_geo)+'_' + str(i) + '.sh', 'w+') as g:
                         g.write('#!/bin/bash' + '\n')
-                        for num_sim in sim_num_list[i*15:(i+1)*15]:
+                        for num_sim in sim_num_list[i*30:(i+1)*30]:
                             g.write('python RunSimulation.py' +' --P1 '+ str(paralog1) +' --P2 '+ str(paralog2) + ' --Tau '+ str(tau) + ' --treefile '+ str(treefile) +  ' --Geo ' + str(IGC_geo) + ' --sim_num ' + str(num_sim) + '\n')
 
 ##    sh_line = 'sbatch -o IGCSim-%j.out --mail-type=FAIL --mail-user=xji3@ncsu.edu ./ShFiles_multiply3/'
