@@ -11,7 +11,7 @@ import os
 # again, I am too lazy and I know it...
 
 if __name__ == '__main__':
-    '''
+    
     # constants in the simulation
     # mostly from  inference with IGC expansion see MG94_YDR418W_YEL054C_nonclock_summary.txt
     paralog1 = 'YDR418W'
@@ -20,7 +20,7 @@ if __name__ == '__main__':
     outgroup = [('N0', 'kluyveri')]
     newicktree = './YeastTree.newick'
     num_exon = 163
-    tau_list = [0.0, 1.0, 1.409408, 10.0, 20.0]
+    tau_list = [0.1, 0.3, 0.5, 0.7]#[0.0,0.1, 0.3, 0.5, 0.7, 1.0, 1.409408, 10.0, 20.0]
     IGC_threshold = -0.1
 
     IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
@@ -85,7 +85,7 @@ if __name__ == '__main__':
     outgroup = [('N0', 'Saguinus_oedipus')]
     newicktree = './primate_EDN_ECP.newick'
     num_exon = 156
-    tau_list = [0.0, 1.0, 0.4079238, 3.0,6.0,10.0, 20.0]
+    tau_list = [0.1,0.7]#[0.0,0.1,0.7, 1.0, 0.4079238, 3.0,6.0,10.0, 20.0]
     IGC_threshold = -0.1
 
     IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
@@ -157,7 +157,7 @@ if __name__ == '__main__':
     outgroup = [('N0', 'Branchiostoma_floridae')]
     newicktree = './ThorntonERaERb.newick'
     num_exon = 310
-    tau_list = [0.0, 0.5,1.0, 0.27788]
+    tau_list = [0.1,0.7]#[0.0,0.1,0.7, 0.5,1.0, 0.27788]
     IGC_threshold = -0.1
 
     IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
@@ -215,14 +215,14 @@ if __name__ == '__main__':
                 except:
                     print 'failed at sim  ' + str(sim_num) + '  IGC_geo = ' + str(IGC_geo)
                     test.write_log()
-'''
+
     paralog1 = 'MR'
     paralog2 = 'GR'
     outgroup = [('N0', 'Aplysia_californica')]
     paralog = [paralog1, paralog2]
     newicktree = './Thornton_MRGRARPR.newick'
     num_exon = 342
-    tau_list = [0.0, 0.5,1.0, 0.1630137]
+    tau_list = [0.1,0.7]#[0.0,0.1,0.7, 0.5,1.0, 0.1630137]
     IGC_threshold = -0.1
 
     IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
