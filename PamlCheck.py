@@ -22,7 +22,7 @@ def initialize(paralog, out_path = './output/', alignment_path = '../MafftAlignm
         subprocess.check_output(['cp', input_tree.replace(out_path, old_paml_tree_path), input_tree])
 
 
-def run_paml(wk_dir, ctl_file, codeml_dir = '/home3/jxiong7/IGCsimulation2/codeml.exe'):#/home3/jxiong7/IGCsimulation2 for cluster, /Users/xjw1001001/Desktop/PAML/ for windows
+def run_paml(wk_dir, ctl_file, codeml_dir = '/home3/jxiong7/IGCsimulation2/'):#/home3/jxiong7/IGCsimulation2 for cluster, /Users/xjw1001001/Desktop/PAML/ for windows
     codeml_cmd = [codeml_dir, ctl_file.replace(wk_dir, './')]
     os.chdir(wk_dir)
     print(codeml_cmd)
