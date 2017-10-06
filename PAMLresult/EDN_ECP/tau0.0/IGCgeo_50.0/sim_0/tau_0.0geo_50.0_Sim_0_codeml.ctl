@@ -1,6 +1,6 @@
-seqfile = /Users/xjw1001001/Documents/GitHub/IGCsimulation2/EDN_ECP/tau0.0/IGCgeo_50.0/sim_0/EDN_ECP_MG94_geo_50.0_Sim_0_leaf.fasta
-treefile = /Users/xjw1001001/Documents/GitHub/IGCsimulation2/primate_EDN_ECP_separate.newick
-outfile = /Users/xjw1001001/Documents/GitHub/IGCsimulation2/PAMLresult/EDN_ECP/tau0.0/IGCgeo_50.0/sim_0/unrooted_MG94_geo_50.0_Sim_0_codeml_output.txt
+seqfile = /home3/jxiong7/IGCsimulation2/EDN_ECP/tau0.0/IGCgeo_50.0/sim_0/EDN_ECP_MG94_geo_50.0_Sim_0_leaf.fasta
+treefile = /home3/jxiong7/IGCsimulation2/primate_EDN_ECP_separate.newick
+outfile = /home3/jxiong7/IGCsimulation2/PAMLresult/EDN_ECP/tau0.0/IGCgeo_50.0/sim_0/unrooted_MG94_geo_50.0_Sim_0_codeml_output.txt
 noisy = 9
 verbose = 1
 runmode = 0
