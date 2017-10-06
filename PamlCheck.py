@@ -22,7 +22,7 @@ def initialize(paralog, out_path = './output/', alignment_path = '../MafftAlignm
         subprocess.check_output(['cp', input_tree.replace(out_path, old_paml_tree_path), input_tree])
 
 
-def run_paml(wk_dir, ctl_file, codeml_dir = '/home3/jxiong7/IGCsimulation2/'):#/home3/jxiong7/IGCsimulation2 for cluster, /Users/xjw1001001/Desktop/PAML/ for windows
+def run_paml(wk_dir, ctl_file, codeml_dir = '/home3/jxiong7/IGCsimulation2/paml4.9e/bin/codeml'):#'/home3/jxiong7/IGCsimulation2/paml4.9e/bin/codeml' for cluster, '/Users/xjw1001001/Desktop/PAML/codeml.exe' for windows
     codeml_cmd = [codeml_dir, ctl_file.replace(wk_dir, './')]
     os.chdir(wk_dir)
     print(codeml_cmd)
@@ -101,8 +101,8 @@ if __name__ == '__main__':
     folder_loc = '/home3/jxiong7/IGCsimulation2'
     tree_loc = folder_loc + '/primate_EDN_ECP_separate.newick'#TODO:
 
-    tau_list = [0.0]#[0.0,1.0,0.4079238,3.0,6.0, 10.0, 20.0]#TODO: [0.0]*[3.0,10.0] run
-    IGC_geo_list = [50.0, 100.0, 500.0]#[3.0,10.0,50.0, 100.0, 500.0]
+    tau_list = [0.0,1.0,0.4079238,3.0,6.0, 10.0, 20.0]#TODO: [0.0]*[3.0,10.0] run
+    IGC_geo_list = [3.0,10.0,50.0, 100.0, 500.0]
     #IGC_geo_list = [10.0]
     name_tree_1st = folder_loc +'/primate_EDN_ECP_separate_1st.newick'#TODO:
     name_tree_2nd = folder_loc +'/primate_EDN_ECP_separate_2nd.newick'#TODO:
