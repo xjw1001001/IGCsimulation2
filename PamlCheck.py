@@ -101,7 +101,7 @@ if __name__ == '__main__':
     folder_loc = '/home3/jxiong7/IGCsimulation2'
     tree_loc = folder_loc + '/primate_EDN_ECP_separate.newick'#TODO:
 
-    tau_list =[0.0,0.1,0.7, 1.0, 0.4079238, 3.0,6.0,10.0, 20.0]#TODO: [0.0]*[3.0,10.0] run
+    tau_list =[0.0]#[0.0,0.1,0.7, 1.0, 0.4079238, 3.0,6.0,10.0, 20.0]#TODO: [0.0]*[3.0,10.0] run
     IGC_geo_list = [3.0,10.0,50.0, 100.0, 500.0]
     #IGC_geo_list = [10.0]
     name_tree_1st = folder_loc +'/primate_EDN_ECP_separate_1st.newick'#TODO:
@@ -113,7 +113,7 @@ if __name__ == '__main__':
             header = []
             summary_mat = []
             summary_mat_2 = []
-            for sim_num in range(30):#['/Users/xjw1001001/Desktop/PAML/codeml.exe', './tau_1.409408geo_50.0_Sim_16_codeml.ctl']
+            for sim_num in range(1):#['/Users/xjw1001001/Desktop/PAML/codeml.exe', './tau_1.409408geo_50.0_Sim_16_codeml.ctl']
                 #wk_dir = '/Users/xji3/GitFolders/IGCCodonSimulation/YDR418W_YEL054C/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'
                 wk_dir = folder_loc +'/PAMLresult/EDN_ECP/tau'+str(tau)+'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'#TODO:
                 if not os.path.isdir(wk_dir):
