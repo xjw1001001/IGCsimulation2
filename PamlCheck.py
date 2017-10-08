@@ -182,7 +182,7 @@ if __name__ == '__main__':
     tree_loc = '/Users/xjw1001001/Documents/GitHub/IGCsimulation2/YDR418W_YEL054C_tree.newick'
 
     tau_list = [0.1, 0.3, 0.5, 0.7]#[0.0,0.1, 0.3, 0.5, 0.7, 1.0, 1.409408, 10.0, 20.0] undo 0.1 0.3 0.5 0.7
-    IGC_geo_list = [3.0,10.0,50.0, 100.0, 500.0]#[3.0,10.0,50.0, 100.0, 500.0]
+    IGC_geo_list = [10.0,50.0, 100.0, 500.0]#[3.0,10.0,50.0, 100.0, 500.0]3.0,
     #IGC_geo_list = [10.0]
     name_tree_1st = '/Users/xjw1001001/Documents/GitHub/IGCsimulation2/YDR418W_YEL054C_1st.newick'
     name_tree_2nd = '/Users/xjw1001001/Documents/GitHub/IGCsimulation2/YDR418W_YEL054C_2nd.newick'
