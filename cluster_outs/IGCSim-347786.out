@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 25, in main
+    os.makedirs('./SimulationSave/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/')
+  File "/usr/lib/python2.7/os.py", line 157, in makedirs
+    mkdir(name, mode)
+OSError: [Errno 17] File exists: './SimulationSave/EDN_ECP/tau0.1/IGCgeo_50.0/'
+/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py:324: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+  if not x == None:
