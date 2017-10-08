@@ -1,0 +1,61 @@
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 25, in main
+    os.makedirs('./SimulationSave/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/')
+  File "/usr/lib/python2.7/os.py", line 157, in makedirs
+    mkdir(name, mode)
+OSError: [Errno 17] File exists: './SimulationSave/EDN_ECP/tau0.1/IGCgeo_3.0/'
+/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py:324: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+  if not x == None:
+number of sites to be analyzed:  156
+      fun: 2341.7477567080214
+ hess_inv: <30x30 LbfgsInvHessProduct with dtype=float64>
+      jac: array([ -1.10958354e-02,  -3.59250407e-03,  -3.91082722e-03,
+        -2.27373675e-03,  -2.59205990e-03,   7.50333129e-03,
+        -4.02112788e-03,  -2.27756665e-04,  -5.95779459e-03,
+        -2.12779272e-03,  -1.73475424e-03,  -4.57799213e-03,
+         2.43169094e-03,  -1.26391604e-04,  -4.51503985e-03,
+        -4.53235225e-03,  -5.56517106e-04,  -4.83817077e-05,
+        -2.63667495e-03,   2.90922251e-03,   1.10959654e-02,
+        -3.08529408e-03,   1.19581808e-04,   1.44717456e-03,
+        -4.19190908e-04,  -8.93216572e-03,   2.63652207e-03,
+         1.36563762e-05,   2.22631231e-03,   7.02652231e-04])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 112
+      nit: 103
+   status: 0
+  success: True
+        x: array([ -0.67811959,  -0.4695074 ,  -0.80380604,   0.65112385,
+        -0.34208125,  -1.98192642,  -2.01536225,  -1.30089738,
+        -1.87439478,  -3.56832066,  -5.07309229,  -5.19457209,
+        -2.94491694,  -4.40770947,  -4.19294169,  -4.18310781,
+        -5.11515862,  -4.41263359,  -5.81084768, -11.64002655,
+        -3.40123974,  -5.81044343,  -3.70660494,  -1.93995603,
+        -2.66107289,  -2.26144519, -11.70084125,  -4.40505506,
+        -4.69207241,  -3.70734244])
+number of sites to be analyzed:  156
+Successfully loaded parameter value from ./SimulationSave/EDN_ECP/tau0.1/IGCgeo_3.0/EDN_ECP_MG94_geo_3.0_Sim_21_save.txt
+      fun: 2344.823409468908
+ hess_inv: <30x30 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-0.09285941, -0.05461516, -0.01327862, -0.004502  ,  0.01200533,
+       -0.        , -0.0092278 ,  0.00372295, -0.00420495,  0.00223764,
+        0.00089748,  0.0029604 ,  0.00263751, -0.00346004, -0.00425742,
+       -0.00383679,  0.00290754, -0.00341264, -0.00650986,  0.00276137,
+       -0.00353842, -0.00652647,  0.00566434, -0.00669671,  0.00601171,
+        0.00539286,  0.00255165, -0.00265619,  0.00075038,  0.00442071])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 49
+      nit: 43
+   status: 0
+  success: True
+        x: array([ -0.67602076,  -0.47490586,  -0.80469216,   0.62795306,
+        -0.3409683 ,  -1.98192642,  -2.06829811,  -1.28606743,
+        -1.84597229,  -3.53590212,  -5.08336047,  -5.09832951,
+        -2.90435794,  -4.3635157 ,  -4.1439015 ,  -4.138628  ,
+        -5.0629906 ,  -4.3671201 ,  -5.76585276, -11.64446646,
+        -3.35475555,  -5.76533796,  -3.66043817,  -1.89224382,
+        -2.62973   ,  -2.23664463, -11.70494331,  -4.36962972,
+        -4.65571992,  -3.67149101])
+/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py:324: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+  if not x == None:

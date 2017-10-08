@@ -1,0 +1,78 @@
+/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py:324: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+  if not x == None:
+number of sites to be analyzed:  342
+      fun: 13845.673990007832
+ hess_inv: <26x26 LbfgsInvHessProduct with dtype=float64>
+      jac: array([  3.81099562e+02,  -4.64751793e-01,   3.84286614e+02,
+         3.82982762e+02,   3.83557017e+02,   3.83927545e+02,
+         3.08617891e-01,   4.45547299e-01,   5.44576125e-01,
+         2.60886273e-01,  -2.16797653e-01,  -4.76534449e-01,
+         6.67009835e-02,  -4.46720318e-01,  -3.45340186e-01,
+         1.31813793e-01,  -2.04477392e-01,   2.38483590e-01,
+        -4.64182860e-02,   3.96414485e-01,   3.06610609e-01,
+        -9.42034797e-03,   1.21031850e-01,   3.58749235e-02,
+        -2.94869961e-01,  -3.83864586e-01])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 90
+      nit: 57
+   status: 0
+  success: True
+        x: array([-0.66720461, -0.75233856, -0.56559479,  0.54119241, -0.39910763,
+        0.18863096,  0.82039627,  2.44848388, -0.82483871, -0.26094115,
+       -0.24835833, -0.34195171, -1.77740579, -0.71118621, -0.60236884,
+       -0.94550699, -4.32529176, -1.9309859 , -2.30808036, -3.46022934,
+       -2.28143205, -1.32003474, -2.27558505, -2.98745446, -3.68167406,
+       -3.58546974])
+number of sites to be analyzed:  342
+Successfully loaded parameter value from ./SimulationSave/MR_GR/tau1.0/IGCgeo_100.0/MR_GR_MG94_geo_100.0_Sim_0_save.txt
+      fun: 15377.801564952173
+ hess_inv: <26x26 LbfgsInvHessProduct with dtype=float64>
+      jac: array([  3.92116090e+02,  -2.43197064e+01,   5.74329533e+01,
+        -2.52970494e+01,   1.97390182e+02,  -0.00000000e+00,
+         5.19018148e+00,  -1.03257983e+00,   2.13147793e+01,
+        -5.81398882e+01,  -4.23451443e+01,  -3.10171682e+01,
+        -3.59358260e+00,  -3.36945660e+01,  -4.39917059e+01,
+        -3.04334536e+01,  -2.88146441e+00,   1.57507117e+01,
+         5.37727215e+00,   1.98822428e-01,   1.64568930e+01,
+         1.54436886e+01,   1.41214459e+01,  -1.38451025e+00,
+        -4.78218136e+00,  -4.24576143e+00])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 27
+      nit: 8
+   status: 0
+  success: True
+        x: array([-0.61028527, -0.75825574, -0.55243396,  0.48495416, -0.06007642,
+        0.18863096, -4.46744696,  2.49599441, -2.05694927, -0.25963081,
+       -0.27043402, -0.23701795, -1.70061417, -0.50511058, -0.89589675,
+       -0.42208016, -4.25178759, -1.55443019, -1.94624346, -3.31132398,
+       -1.66232814, -0.99525447, -1.7340623 , -2.63317973, -3.46389708,
+       -3.37949464])
+/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py:324: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+  if not x == None:
+number of sites to be analyzed:  342
+Traceback (most recent call last):
+  File "RunSimulation.py", line 58, in <module>
+    main(parser.parse_args())    
+  File "RunSimulation.py", line 36, in main
+    test.get_mle(False, True, 0, 'BFGS')
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 918, in get_mle
+    result = scipy.optimize.minimize(f, guess_x, jac = True, method = 'L-BFGS-B', bounds = bnds)
+  File "/usr/local/lib/python2.7/dist-packages/scipy/optimize/_minimize.py", line 450, in minimize
+    callback=callback, **options)
+  File "/usr/local/lib/python2.7/dist-packages/scipy/optimize/lbfgsb.py", line 328, in _minimize_lbfgsb
+    f, g = func_and_grad(x)
+  File "/usr/local/lib/python2.7/dist-packages/scipy/optimize/lbfgsb.py", line 278, in func_and_grad
+    f = fun(x, *args)
+  File "/usr/local/lib/python2.7/dist-packages/scipy/optimize/optimize.py", line 292, in function_wrapper
+    return function(*(wrapper_args + args))
+  File "/usr/local/lib/python2.7/dist-packages/scipy/optimize/optimize.py", line 63, in __call__
+    fg = self.fun(x, *args)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 777, in objective_and_gradient
+    f, g = self.loglikelihood_and_gradient(display = display)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 695, in loglikelihood_and_gradient
+    ll, edge_derivs = fn(edge_derivative = True)
+  File "/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py", line 647, in _loglikelihood2
+    ll = j_out['responses'][0]
+TypeError: 'NoneType' object has no attribute '__getitem__'
+/home3/jxiong7/IGCsimulation2/Rewrite_CodonGeneconv.py:324: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+  if not x == None:
