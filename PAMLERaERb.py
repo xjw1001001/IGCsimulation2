@@ -29,7 +29,7 @@ def initialize(paralog, out_path = './output/', alignment_path = '../MafftAlignm
         subprocess.check_output(['cp', input_tree.replace(out_path, old_paml_tree_path), input_tree])
 
 
-def run_paml(wk_dir, ctl_file, codeml_dir = '/home3/jxiong7/IGCsimulation2/paml4.9e/bin/codeml'):#'/home3/jxiong7/IGCsimulation2/paml4.9e/bin/codeml' for cluster, '/Users/xjw1001001/Desktop/PAML/codeml.exe' for windows
+def run_paml(wk_dir, ctl_file, codeml_dir = '/Users/xjw1001001/Desktop/PAML/codeml.exe'):#'/home3/jxiong7/IGCsimulation2/paml4.9e/bin/codeml' for cluster, '/Users/xjw1001001/Desktop/PAML/codeml.exe' for windows
     codeml_cmd = [codeml_dir, ctl_file.replace(wk_dir, './')]
     os.chdir(wk_dir)
     print(codeml_cmd)
@@ -105,15 +105,15 @@ def Seperate_codeml_result(codeml_output_file, new_files):
 
 def main(args):
     #folder_loc = '/Users/xjw1001001/Documents/GitHub/IGCsimulation2'
-    folder_loc = '/home3/jxiong7/IGCsimulation2'
-    tree_loc = folder_loc + '/primate_EDN_ECP_separate.newick'#TODO:
+    folder_loc = '/Users/xjw1001001/Documents/GitHub/IGCsimulation2'
+    tree_loc = folder_loc + '/ERa_ERb_separate_forPAML.newick'#TODO:
 
     #tau_list =[0.0]#[0.0,0.1,0.7, 1.0, 0.4079238, 3.0,6.0,10.0, 20.0]#TODO: [0.0]*[3.0,10.0] run
-    tau_list = [0.0,0.1,0.7, 0.5,1.0, 0.27788]
+    tau_list = [args.tau]#[0.0,0.1,0.7, 0.5,1.0, 0.27788]
     IGC_geo_list = [3.0,10.0,50.0, 100.0, 500.0]
     #IGC_geo_list = [10.0]
-    name_tree_1st = folder_loc +'/primate_EDN_ECP_separate_1st.newick'#TODO:
-    name_tree_2nd = folder_loc +'/primate_EDN_ECP_separate_2nd.newick'#TODO:
+    name_tree_1st = folder_loc +'/ERa_ERb_separate_forPAML_1st.newick'#TODO:
+    name_tree_2nd = folder_loc +'/ERa_ERb_separate_forPAML_2nd.newick'#TODO:
 
     for IGC_geo in IGC_geo_list:
         for tau in tau_list: 
@@ -123,10 +123,10 @@ def main(args):
             summary_mat_2 = []
             for sim_num in range(30):#['/Users/xjw1001001/Desktop/PAML/codeml.exe', './tau_1.409408geo_50.0_Sim_16_codeml.ctl']
                 #wk_dir = '/Users/xji3/GitFolders/IGCCodonSimulation/YDR418W_YEL054C/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'
-                wk_dir = folder_loc +'/PAMLresult/EDN_ECP/tau'+str(tau)+'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'#TODO:
+                wk_dir = folder_loc +'/PAMLresult/ERa_ERb/tau'+str(tau)+'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'#TODO:
                 if not os.path.isdir(wk_dir):
                     os.makedirs(wk_dir)                                                                  
-                seq_loc = folder_loc +'/' + 'EDN_ECP/tau'+str(tau)+'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + 'EDN_ECP_MG94_'+ 'geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '_leaf.fasta'#TODO:
+                seq_loc = folder_loc +'/' + 'ERa_ERb/tau'+str(tau)+'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + 'ERa_ERb_MG94_'+ 'geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '_leaf.fasta'#TODO:
                 ctl_loc = wk_dir + 'tau_'+ str(tau) +'geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '_codeml.ctl'
                 out_file = wk_dir + 'unrooted_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '_codeml_output.txt'
                 prepare_ctl(tree_loc, seq_loc, out_file, ctl_loc)
