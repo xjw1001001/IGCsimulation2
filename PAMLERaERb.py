@@ -105,7 +105,7 @@ def Seperate_codeml_result(codeml_output_file, new_files):
 
 def main(args):
     #folder_loc = '/Users/xjw1001001/Documents/GitHub/IGCsimulation2'
-    folder_loc = '/home3/jxiong7/IGCsimulation2'
+    folder_loc = '/home3/jxiong7/IGCsimulation2'#'/home3/jxiong7/IGCsimulation2'
     tree_loc = folder_loc + '/ERa_ERb_separate_forPAML.newick'#TODO:
 
     #tau_list =[0.0]#[0.0,0.1,0.7, 1.0, 0.4079238, 3.0,6.0,10.0, 20.0]#TODO: [0.0]*[3.0,10.0] run
@@ -121,7 +121,7 @@ def main(args):
             header = []
             summary_mat = []
             summary_mat_2 = []
-            for sim_num in range(30):#['/Users/xjw1001001/Desktop/PAML/codeml.exe', './tau_1.409408geo_50.0_Sim_16_codeml.ctl']
+            for sim_num in range(1):#['/Users/xjw1001001/Desktop/PAML/codeml.exe', './tau_1.409408geo_50.0_Sim_16_codeml.ctl']
                 #wk_dir = '/Users/xji3/GitFolders/IGCCodonSimulation/YDR418W_YEL054C/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'
                 wk_dir = folder_loc +'/PAMLresult/ERa_ERb/tau'+str(tau)+'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'#TODO:
                 if not os.path.isdir(wk_dir):
@@ -159,7 +159,7 @@ def main(args):
     
                     with open(out_tree2_file, 'r') as f:
                         all_lines = f.readlines()
-                    tree_line = [i for i in all_lines if i[:17] == '((((((Mandrillus_'][0]#TODO:
+                    tree_line = [i for i in all_lines if i[:26] == '(Branchiostoma_floridaeERa'][0]#TODO:
     
                     with open(tree2_file, 'w+') as f:
                         f.write(tree_line)
