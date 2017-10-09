@@ -29,7 +29,7 @@ def initialize(paralog, out_path = './output/', alignment_path = '../MafftAlignm
         subprocess.check_output(['cp', input_tree.replace(out_path, old_paml_tree_path), input_tree])
 
 
-def run_paml(wk_dir, ctl_file, codeml_dir = '/Users/xjw1001001/Desktop/PAML/codeml.exe'):#'/home3/jxiong7/IGCsimulation2/paml4.9e/bin/codeml' for cluster, '/Users/xjw1001001/Desktop/PAML/codeml.exe' for windows
+def run_paml(wk_dir, ctl_file, codeml_dir = '/home3/jxiong7/IGCsimulation2/paml4.9e/bin/codeml'):#'/home3/jxiong7/IGCsimulation2/paml4.9e/bin/codeml' for cluster, '/Users/xjw1001001/Desktop/PAML/codeml.exe' for windows
     codeml_cmd = [codeml_dir, ctl_file.replace(wk_dir, './')]
     os.chdir(wk_dir)
     print(codeml_cmd)
@@ -105,7 +105,7 @@ def Seperate_codeml_result(codeml_output_file, new_files):
 
 def main(args):
     #folder_loc = '/Users/xjw1001001/Documents/GitHub/IGCsimulation2'
-    folder_loc = '/Users/xjw1001001/Documents/GitHub/IGCsimulation2'
+    folder_loc = '/home3/jxiong7/IGCsimulation2'
     tree_loc = folder_loc + '/ERa_ERb_separate_forPAML.newick'#TODO:
 
     #tau_list =[0.0]#[0.0,0.1,0.7, 1.0, 0.4079238, 3.0,6.0,10.0, 20.0]#TODO: [0.0]*[3.0,10.0] run
