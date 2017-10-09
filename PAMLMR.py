@@ -116,7 +116,7 @@ def main(args):
     tree_loc = folder_loc + '/MR_GR_separate_forPAML.newick'#TODO:
 
     #tau_list =[0.0]#[0.0,0.1,0.7, 1.0, 0.4079238, 3.0,6.0,10.0, 20.0]#TODO: [0.0]*[3.0,10.0] run
-    tau_list = [args.tau]#[0.0,0.1,0.7, 0.5,1.0, 0.27788]
+    tau_list = [args.tau]#[0.0,0.1,0.7, 0.5,1.0, 0.1630137]
     IGC_geo_list = [3.0,10.0,50.0, 100.0, 500.0]
     #IGC_geo_list = [10.0]
     name_tree_1st = folder_loc +'/MR_GR_separate_forPAML_1st.newick'#TODO:
