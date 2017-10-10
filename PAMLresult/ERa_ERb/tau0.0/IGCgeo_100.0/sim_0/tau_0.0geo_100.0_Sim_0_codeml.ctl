@@ -1,6 +1,6 @@
-seqfile = /Users/xjw1001001/Documents/GitHub/IGCsimulation2/ERa_ERb/tau0.0/IGCgeo_100.0/sim_0/ERa_ERb_MG94_geo_100.0_Sim_0_leaf.fasta
-treefile = /Users/xjw1001001/Documents/GitHub/IGCsimulation2/ERa_ERb_separate_forPAML.newick
-outfile = /Users/xjw1001001/Documents/GitHub/IGCsimulation2/PAMLresult/ERa_ERb/tau0.0/IGCgeo_100.0/sim_0/unrooted_MG94_geo_100.0_Sim_0_codeml_output.txt
+seqfile = /home3/jxiong7/IGCsimulation2/ERa_ERb/tau0.0/IGCgeo_100.0/sim_0/ERa_ERb_MG94_geo_100.0_Sim_0_leaf.fasta
+treefile = /home3/jxiong7/IGCsimulation2/ERa_ERb_separate_forPAML.newick
+outfile = /home3/jxiong7/IGCsimulation2/PAMLresult/ERa_ERb/tau0.0/IGCgeo_100.0/sim_0/unrooted_MG94_geo_100.0_Sim_0_codeml_output.txt
 noisy = 9
 verbose = 1
 runmode = 0
