@@ -1,6 +1,6 @@
-seqfile = /Users/xjw1001001/Documents/GitHub/IGCsimulation2/MR_GR/tau0.0/IGCgeo_10.0/sim_15/MR_GR_MG94_geo_10.0_Sim_15_leaf.fasta
-treefile = /Users/xjw1001001/Documents/GitHub/IGCsimulation2/MR_GR_separate_forPAML.newick
-outfile = /Users/xjw1001001/Documents/GitHub/IGCsimulation2/PAMLresult/MR_GR/tau0.0/IGCgeo_10.0/sim_15/unrooted_MG94_geo_10.0_Sim_15_codeml_output.txt
+seqfile = /home3/jxiong7/IGCsimulation2/MR_GR/tau0.0/IGCgeo_10.0/sim_15/MR_GR_MG94_geo_10.0_Sim_15_leaf.fasta
+treefile = /home3/jxiong7/IGCsimulation2/MR_GR_separate_forPAML.newick
+outfile = /home3/jxiong7/IGCsimulation2/PAMLresult/MR_GR/tau0.0/IGCgeo_10.0/sim_15/unrooted_MG94_geo_10.0_Sim_15_codeml_output.txt
 noisy = 9
 verbose = 1
 runmode = 0
