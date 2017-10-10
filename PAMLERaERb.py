@@ -121,7 +121,7 @@ def main(args):
             header = []
             summary_mat = []
             summary_mat_2 = []
-            for sim_num in range(1):#['/Users/xjw1001001/Desktop/PAML/codeml.exe', './tau_1.409408geo_50.0_Sim_16_codeml.ctl']
+            for sim_num in range(30):#['/Users/xjw1001001/Desktop/PAML/codeml.exe', './tau_1.409408geo_50.0_Sim_16_codeml.ctl']
                 #wk_dir = '/Users/xji3/GitFolders/IGCCodonSimulation/YDR418W_YEL054C/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'
                 wk_dir = folder_loc +'/PAMLresult/ERa_ERb/tau'+str(tau)+'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'#TODO:
                 if not os.path.isdir(wk_dir):
