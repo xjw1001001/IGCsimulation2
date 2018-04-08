@@ -390,8 +390,8 @@ if __name__ == '__main__':
     pi = [0.3003473684188488, 0.21394338106802796, 0.19214618460490698, 0.2935630659082163]
     div_limit = 1 - sum([i **2 for i in pi])
     for replicate in range(0, 1):
-        log_file = './logs/3rd_log_g_' + str(IGC_g) + '_q_' + str(IGC_q) + '_threshold_' + str(IGC_threshold) + '_rep_' + str(replicate) + '.log'
-        div_file = './logs/3rd_div_g_' + str(IGC_g) + '_q_' + str(IGC_q) + '_threshold_' + str(IGC_threshold) + '_rep_' + str(replicate) + '.log'
+        log_file = './cluster_outs/3rd_log_g_' + str(IGC_g) + '_q_' + str(IGC_q) + '_threshold_' + str(IGC_threshold) + '_rep_' + str(replicate) + '.log'
+        div_file = './cluster_outs/3rd_div_g_' + str(IGC_g) + '_q_' + str(IGC_q) + '_threshold_' + str(IGC_threshold) + '_rep_' + str(replicate) + '.log'
         test = OneBranchIGCCodonSimulator(blen, num_exon, x_exon, x_IGC, log_file, div_file)
 
         self = test

@@ -1,13 +1,37 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Sep 26 08:56:32 2017
+Created on Sun Apr 08 09:42:38 2018
 
 @author: xjw1001001
 """
+import numpy as np
+from IGCexpansion.CodonGeneconFunc import *
 
-paralog1 = 'YDR418W'
-paralog2 = 'YEL054C'
-paralog = [paralog1, paralog2]
-tau_list = [0.0, 1.0, 1.409408, 10.0, 20.0]
-IGC_geo_list = [3.0, 10.0, 50.0, 100.0, 500.0]
-sim_num_list = range(30)
+#树文件位置
+EDNECP_newicktree ='/Users/xjw1001001/Documents/GitHub/IGCexpansion2/reconstruction_data/Zhang2002_data ECPEDN/from gene bank/primate_EDN_ECP.newick'
+Yeast_newicktree = '/Users/xjw1001001/Documents/GitHub/IGCexpansion2/YeastTree.newick'
+ERa_ERb_newicktree = '/Users/xjw1001001/Documents/GitHub/IGCexpansion2/reconstruction_data/SR_Thornton/ER/species.newick'
+ARa_ERa_newicktree = '/Users/xjw1001001/Documents/GitHub/IGCexpansion2/reconstruction_data/SR_Thornton/ARa_ERa/ERa_ARa_species.newick'
+ARMRGRPR_newicktree = '/Users/xjw1001001/Documents/GitHub/IGCexpansion2/reconstruction_data/SR_Thornton/AR_MR_GR_PR/species_common/species_common.newick'
+
+#四种simulation
+paralogs_pair = [['MR', 'GR'],['ERa','ERb'],['EDN','ECP'],['YDR418W','YEL054C']]
+
+#真序列位置
+true_series_path = '/Users/xjw1001001/Documents/GitHub/IGCsimulation2/' #+_'.join(pair)+'/'
+
+#重建序列位置
+constructed_series_path = '/Users/xjw1001001/Documents/GitHub/IGCsimulation2/test/Ancestral_reconstruction/series/' #+_'.join(pair)+'/'
+
+#序列选择文件
+#for tau in tau_list:
+#    for IGCgeo in IGCgeo_list:
+#        for sim in range(30):
+#             + 'tau' + str(tau) + '/IGCgeo_' + str(IGCgeo) + '/sim_' + str(sim) + '/ancestral_reconstruction_' + _'.join(pair) + '_MG94.fasta'
+
+
+                           
+                           
+                           
+                           
+                           
