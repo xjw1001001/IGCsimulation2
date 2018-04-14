@@ -11,6 +11,7 @@
 
 from __future__ import print_function, absolute_import
 import networkx as nx
+import os
 from IGCexpansion.CodonGeneconFunc import *
 import argparse
 #from jsonctmctree.extras import optimize_em
@@ -1518,209 +1519,209 @@ class ReCodonGeneconv:
         else:
             return out        
 
-    def Expected_tau_for_sitewise_and_branchwise(self, display = False):
-        if self.GeneconvTransRed is None:
-            self.GeneconvTransRed = self.get_geneconvTransRed()
-        
-        #get number
-        self.scene_ll = self.get_scene()
-        requests = [{'property' : 'DDNTRAN', 'transition_reduction' : self.GeneconvTransRed}]
-        j_in = {
-            'scene' : self.scene_ll,
-            'requests' : requests
-            }        
-        j_out = jsonctmctree.interface.process_json_in(j_in)
-        
-        #j_out['responses'][0]:site*branch (发生IGC次数期望)
-        status = j_out['status']
-        ExpectedIGCnum = np.array(j_out['responses'][0])
-        
-        #get time
-        if self.Model == 'MG94':                                
-            heterogeneous_states = [(a, b) for (a, b) in list(product(range(len(self.codon_to_state)), repeat = 2)) if a != b]
-        elif self.Model == 'HKY':
-            heterogeneous_states = [(a, b) for (a, b) in list(product(range(len(self.nt_to_state)), repeat = 2)) if a != b]
-        dwell_request = [dict(
-            property = 'DDWDWEL',
-            state_reduction = dict(
-                states = heterogeneous_states,
-                weights = [2] * len(heterogeneous_states)#
-            )
-        )]
-        
-        j_in = {
-            'scene' : self.scene_ll,
-            'requests' : dwell_request,
-            }        
-        j_out = jsonctmctree.interface.process_json_in(j_in)
-        
-        status = j_out['status']
-        HetDwelltime = np.array(j_out['responses'][0])
-        
-        Expected_tau=np.zeros((self.nsites,len(self.edge_to_blen)))
-        for site in range(self.nsites):
-            for branch in range(len(self.edge_list)):
-                if HetDwelltime[site,branch] != 0:
-                    Expected_tau[site,branch] = ExpectedIGCnum[site,branch] / (self.edge_to_blen[self.edge_list[branch]] * HetDwelltime[site,branch])
-                else:
-                    Expected_tau[site,branch] = 0
-        SiteExpectedDirectionalNumGeneconv = self._SitewiseExpectedDirectionalNumGeneconv()#1->2 0 2->1 1
-        SitewiseExpectedpointMutation = self._SitewiseExpectedpointMutationNum()
-        Sitewiseporpotion = np.zeros((self.nsites,len(self.edge_to_blen)))
-        for site in range(self.nsites):
-            for branch in range(len(self.edge_list)):
-                if (ExpectedIGCnum[site,branch] + SitewiseExpectedpointMutation[site,branch]) > 0.05:
-                    Sitewiseporpotion[site,branch] = ExpectedIGCnum[site,branch] / (ExpectedIGCnum[site,branch] + SitewiseExpectedpointMutation[site,branch])
-        self.scene_ll = self.get_scene()
-        
-        if self.tau == 0:
-                model = self.Model + '_tau=0'
-        else:
-                model = self.Model + '_IGC'
-        
-        
-        
-        np.savetxt(open('./test/Ancestral_reconstruction/matrix/sitewise_IGC_statmatrix/ExpectedIGCnum/' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt', 'w+'), ExpectedIGCnum)
-        np.savetxt(open('./test/Ancestral_reconstruction/matrix/sitewise_IGC_statmatrix/ExpectedIGCnum1_2/' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt', 'w+'), SiteExpectedDirectionalNumGeneconv[0])
-        np.savetxt(open('./test/Ancestral_reconstruction/matrix/sitewise_IGC_statmatrix/ExpectedIGCnum2_1/' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt', 'w+'), SiteExpectedDirectionalNumGeneconv[1])
-        np.savetxt(open('./test/Ancestral_reconstruction/matrix/sitewise_IGC_statmatrix/Expected_tau/' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt', 'w+'), Expected_tau)
-        np.savetxt(open('./test/Ancestral_reconstruction/matrix/sitewise_IGC_statmatrix/Sitewiseporpotion/' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt', 'w+'), Sitewiseporpotion)
-        np.savetxt(open('./test/Ancestral_reconstruction/matrix/sitewise_IGC_statmatrix/SitewiseExpectedpointMutation/' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'.txt', 'w+'), SitewiseExpectedpointMutation)
-        
-        #site logll
-        j_in = {
-            'scene' : self.scene_ll,
-            'requests' : [{"property" : "DNNLOGL"}],
-            }        
-        j_out = jsonctmctree.interface.process_json_in(j_in)#TODO:sitewise aic
-        sitewise_logll = j_out['responses'][0]
-        
-        #posterior probability at least one 1->2
-        posterior_1to2 = np.zeros((self.nsites,len(self.tree['process'])))
-        for branch in range(0,len(self.tree['process'])):
-                       
-            #getll with tau = 0 for one side
-            #get scene with branch
-            process_definitions = [{'row_states':i['row'], 'column_states':i['col'], 'transition_rates':i['rate']} for i in self.processes]
-            edge_processes = self.tree['process']
-            if edge_processes[branch] == 0:
-                continue
-            edge_processes[branch]=2#no 1->2
-            scene = dict(
-                node_count = len(self.edge_to_blen) + 1,
-                process_count = len(self.processes),
-                state_space_shape = [62, 62],
-                tree = {
-                    'row_nodes' : self.tree['row'],
-                    'column_nodes' : self.tree['col'],
-                    'edge_rate_scaling_factors' : self.tree['rate'],
-                    'edge_processes' : edge_processes
-                    },
-                root_prior = {'states':self.prior_feasible_states,
-                              'probabilities': self.prior_distribution},
-                process_definitions = process_definitions,
-                observed_data = {
-                    'nodes':self.observable_nodes,
-                    'variables':self.observable_axes,
-                    'iid_observations':self.iid_observations
-                    }            
-                )
+    def Expected_tau_for_sitewise_and_branchwise(self, display = False,summary_path = 'default'):
+        if not summary_path == 'default':
+            if self.GeneconvTransRed is None:
+                self.GeneconvTransRed = self.get_geneconvTransRed()
+            
+            #get number
+            self.scene_ll = self.get_scene()
+            requests = [{'property' : 'DDNTRAN', 'transition_reduction' : self.GeneconvTransRed}]
             j_in = {
-                'scene' : scene,
-                'requests' : [{"property" : "DNNLOGL"}],
+                'scene' : self.scene_ll,
+                'requests' : requests
                 }        
             j_out = jsonctmctree.interface.process_json_in(j_in)
-            sitewise_NoIGC_1to2_logll = j_out['responses'][0]
             
+            #j_out['responses'][0]:site*branch (发生IGC次数期望)
+            status = j_out['status']
+            ExpectedIGCnum = np.array(j_out['responses'][0])
+            
+            #get time
+            if self.Model == 'MG94':                                
+                heterogeneous_states = [(a, b) for (a, b) in list(product(range(len(self.codon_to_state)), repeat = 2)) if a != b]
+            elif self.Model == 'HKY':
+                heterogeneous_states = [(a, b) for (a, b) in list(product(range(len(self.nt_to_state)), repeat = 2)) if a != b]
+            dwell_request = [dict(
+                property = 'DDWDWEL',
+                state_reduction = dict(
+                    states = heterogeneous_states,
+                    weights = [2] * len(heterogeneous_states)#
+                )
+            )]
+            
+            j_in = {
+                'scene' : self.scene_ll,
+                'requests' : dwell_request,
+                }        
+            j_out = jsonctmctree.interface.process_json_in(j_in)
+            
+            status = j_out['status']
+            HetDwelltime = np.array(j_out['responses'][0])
+            
+            Expected_tau=np.zeros((self.nsites,len(self.edge_to_blen)))
             for site in range(self.nsites):
-                posterior_1to2[site,branch] = 1-math.exp((sitewise_NoIGC_1to2_logll[site]-
-                                                           sitewise_logll[site]))
-            edge_processes[branch]=1
+                for branch in range(len(self.edge_list)):
+                    if HetDwelltime[site,branch] != 0:
+                        Expected_tau[site,branch] = ExpectedIGCnum[site,branch] / (self.edge_to_blen[self.edge_list[branch]] * HetDwelltime[site,branch])
+                    else:
+                        Expected_tau[site,branch] = 0
+            SiteExpectedDirectionalNumGeneconv = self._SitewiseExpectedDirectionalNumGeneconv()#1->2 0 2->1 1
+            SitewiseExpectedpointMutation = self._SitewiseExpectedpointMutationNum()
+            Sitewiseporpotion = np.zeros((self.nsites,len(self.edge_to_blen)))
+            for site in range(self.nsites):
+                for branch in range(len(self.edge_list)):
+                    if (ExpectedIGCnum[site,branch] + SitewiseExpectedpointMutation[site,branch]) > 0.05:
+                        Sitewiseporpotion[site,branch] = ExpectedIGCnum[site,branch] / (ExpectedIGCnum[site,branch] + SitewiseExpectedpointMutation[site,branch])
+            self.scene_ll = self.get_scene()
+            
+            if self.tau == 0:
+                    model = self.Model + '_tau=0'
+            else:
+                    model = self.Model + '_IGC'
+            
+            
+            np.savetxt(open(summary_path +'ExpectedIGCnum.txt', 'w+'), ExpectedIGCnum)
+            np.savetxt(open(summary_path +'ExpectedIGCnum1_2.txt', 'w+'), SiteExpectedDirectionalNumGeneconv[0])
+            np.savetxt(open(summary_path +'ExpectedIGCnum2_1.txt', 'w+'), SiteExpectedDirectionalNumGeneconv[1])
+            np.savetxt(open(summary_path +'Expected_tau.txt', 'w+'), Expected_tau)
+            np.savetxt(open(summary_path +'Sitewiseporpotion.txt', 'w+'), Sitewiseporpotion)
+            np.savetxt(open(summary_path +'SitewiseExpectedpointMutation.txt', 'w+'), SitewiseExpectedpointMutation)
+            
+            #site logll
+            j_in = {
+                'scene' : self.scene_ll,
+                'requests' : [{"property" : "DNNLOGL"}],
+                }        
+            j_out = jsonctmctree.interface.process_json_in(j_in)#TODO:sitewise aic
+            sitewise_logll = j_out['responses'][0]
+            
+            #posterior probability at least one 1->2
+            posterior_1to2 = np.zeros((self.nsites,len(self.tree['process'])))
+            for branch in range(0,len(self.tree['process'])):
+                           
+                #getll with tau = 0 for one side
+                #get scene with branch
+                process_definitions = [{'row_states':i['row'], 'column_states':i['col'], 'transition_rates':i['rate']} for i in self.processes]
+                edge_processes = self.tree['process']
+                if edge_processes[branch] == 0:
+                    continue
+                edge_processes[branch]=2#no 1->2
+                scene = dict(
+                    node_count = len(self.edge_to_blen) + 1,
+                    process_count = len(self.processes),
+                    state_space_shape = [62, 62],
+                    tree = {
+                        'row_nodes' : self.tree['row'],
+                        'column_nodes' : self.tree['col'],
+                        'edge_rate_scaling_factors' : self.tree['rate'],
+                        'edge_processes' : edge_processes
+                        },
+                    root_prior = {'states':self.prior_feasible_states,
+                                  'probabilities': self.prior_distribution},
+                    process_definitions = process_definitions,
+                    observed_data = {
+                        'nodes':self.observable_nodes,
+                        'variables':self.observable_axes,
+                        'iid_observations':self.iid_observations
+                        }            
+                    )
+                j_in = {
+                    'scene' : scene,
+                    'requests' : [{"property" : "DNNLOGL"}],
+                    }        
+                j_out = jsonctmctree.interface.process_json_in(j_in)
+                sitewise_NoIGC_1to2_logll = j_out['responses'][0]
                 
-        #posterior probability at least one 2->1
-        posterior_2to1 = np.zeros((self.nsites,len(self.tree['process'])))
-        for branch in range(0,len(self.tree['process'])):
-            #get scene with branch
-            process_definitions = [{'row_states':i['row'], 'column_states':i['col'], 'transition_rates':i['rate']} for i in self.processes]
-            edge_processes = self.tree['process']
-            if edge_processes[branch] == 0:
-                continue            
-            edge_processes[branch]=3#no 2->1
-            scene = dict(
-                node_count = len(self.edge_to_blen) + 1,
-                process_count = len(self.processes),
-                state_space_shape = [62, 62],
-                tree = {
-                    'row_nodes' : self.tree['row'],
-                    'column_nodes' : self.tree['col'],
-                    'edge_rate_scaling_factors' : self.tree['rate'],
-                    'edge_processes' : edge_processes
-                    },
-                root_prior = {'states':self.prior_feasible_states,
-                              'probabilities': self.prior_distribution},
-                process_definitions = process_definitions,
-                observed_data = {
-                    'nodes':self.observable_nodes,
-                    'variables':self.observable_axes,
-                    'iid_observations':self.iid_observations
-                    }            
-                )
-            j_in = {
-                'scene' : scene,
-                'requests' : [{"property" : "DNNLOGL"}],
-                }        
-            j_out = jsonctmctree.interface.process_json_in(j_in)
-            sitewise_NoIGC_2to1_logll = j_out['responses'][0]
-            
-            for site in range(self.nsites):
-                posterior_2to1[site,branch] = 1-math.exp((sitewise_NoIGC_2to1_logll[site]-
-                                                           sitewise_logll[site]))
-            edge_processes[branch]=1
+                for site in range(self.nsites):
+                    posterior_1to2[site,branch] = 1-math.exp((sitewise_NoIGC_1to2_logll[site]-
+                                                               sitewise_logll[site]))
+                edge_processes[branch]=1
+                    
+            #posterior probability at least one 2->1
+            posterior_2to1 = np.zeros((self.nsites,len(self.tree['process'])))
+            for branch in range(0,len(self.tree['process'])):
+                #get scene with branch
+                process_definitions = [{'row_states':i['row'], 'column_states':i['col'], 'transition_rates':i['rate']} for i in self.processes]
+                edge_processes = self.tree['process']
+                if edge_processes[branch] == 0:
+                    continue            
+                edge_processes[branch]=3#no 2->1
+                scene = dict(
+                    node_count = len(self.edge_to_blen) + 1,
+                    process_count = len(self.processes),
+                    state_space_shape = [62, 62],
+                    tree = {
+                        'row_nodes' : self.tree['row'],
+                        'column_nodes' : self.tree['col'],
+                        'edge_rate_scaling_factors' : self.tree['rate'],
+                        'edge_processes' : edge_processes
+                        },
+                    root_prior = {'states':self.prior_feasible_states,
+                                  'probabilities': self.prior_distribution},
+                    process_definitions = process_definitions,
+                    observed_data = {
+                        'nodes':self.observable_nodes,
+                        'variables':self.observable_axes,
+                        'iid_observations':self.iid_observations
+                        }            
+                    )
+                j_in = {
+                    'scene' : scene,
+                    'requests' : [{"property" : "DNNLOGL"}],
+                    }        
+                j_out = jsonctmctree.interface.process_json_in(j_in)
+                sitewise_NoIGC_2to1_logll = j_out['responses'][0]
                 
-        #posterior probability at least one IGC
-        posterior_IGC = np.zeros((self.nsites,len(self.tree['process'])))
-        for branch in range(0,len(self.tree['process'])):
-
-            #get scene with branch
-            process_definitions = [{'row_states':i['row'], 'column_states':i['col'], 'transition_rates':i['rate']} for i in self.processes]
-            edge_processes = self.tree['process']
-            if edge_processes[branch] == 0:
-                continue
-            edge_processes[branch]=4#no IGC
-            scene = dict(
-                node_count = len(self.edge_to_blen) + 1,
-                process_count = len(self.processes),
-                state_space_shape = [62, 62],
-                tree = {
-                    'row_nodes' : self.tree['row'],
-                    'column_nodes' : self.tree['col'],
-                    'edge_rate_scaling_factors' : self.tree['rate'],
-                    'edge_processes' : edge_processes
-                    },
-                root_prior = {'states':self.prior_feasible_states,
-                              'probabilities': self.prior_distribution},
-                process_definitions = process_definitions,
-                observed_data = {
-                    'nodes':self.observable_nodes,
-                    'variables':self.observable_axes,
-                    'iid_observations':self.iid_observations
-                    }            
-                )
-            j_in = {
-                'scene' : scene,
-                'requests' : [{"property" : "DNNLOGL"}],
-                }        
-            j_out = jsonctmctree.interface.process_json_in(j_in)
-            sitewise_NoIGC_logll = j_out['responses'][0]
+                for site in range(self.nsites):
+                    posterior_2to1[site,branch] = 1-math.exp((sitewise_NoIGC_2to1_logll[site]-
+                                                               sitewise_logll[site]))
+                edge_processes[branch]=1
+                    
+            #posterior probability at least one IGC
+            posterior_IGC = np.zeros((self.nsites,len(self.tree['process'])))
+            for branch in range(0,len(self.tree['process'])):
+    
+                #get scene with branch
+                process_definitions = [{'row_states':i['row'], 'column_states':i['col'], 'transition_rates':i['rate']} for i in self.processes]
+                edge_processes = self.tree['process']
+                if edge_processes[branch] == 0:
+                    continue
+                edge_processes[branch]=4#no IGC
+                scene = dict(
+                    node_count = len(self.edge_to_blen) + 1,
+                    process_count = len(self.processes),
+                    state_space_shape = [62, 62],
+                    tree = {
+                        'row_nodes' : self.tree['row'],
+                        'column_nodes' : self.tree['col'],
+                        'edge_rate_scaling_factors' : self.tree['rate'],
+                        'edge_processes' : edge_processes
+                        },
+                    root_prior = {'states':self.prior_feasible_states,
+                                  'probabilities': self.prior_distribution},
+                    process_definitions = process_definitions,
+                    observed_data = {
+                        'nodes':self.observable_nodes,
+                        'variables':self.observable_axes,
+                        'iid_observations':self.iid_observations
+                        }            
+                    )
+                j_in = {
+                    'scene' : scene,
+                    'requests' : [{"property" : "DNNLOGL"}],
+                    }        
+                j_out = jsonctmctree.interface.process_json_in(j_in)
+                sitewise_NoIGC_logll = j_out['responses'][0]
+                
+                for site in range(self.nsites):
+                    posterior_IGC[site,branch] = 1-math.exp((sitewise_NoIGC_logll[site]-
+                                                               sitewise_logll[site]))
+                edge_processes[branch]=1
             
-            for site in range(self.nsites):
-                posterior_IGC[site,branch] = 1-math.exp((sitewise_NoIGC_logll[site]-
-                                                           sitewise_logll[site]))
-            edge_processes[branch]=1
-        
-        np.savetxt(open('./test/Ancestral_reconstruction/matrix/sitewise_IGC_statmatrix/posterior/' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'_1to2.txt', 'w+'), posterior_1to2)
-        np.savetxt(open('./test/Ancestral_reconstruction/matrix/sitewise_IGC_statmatrix/posterior/' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'_2to1.txt', 'w+'), posterior_2to1)
-        np.savetxt(open('./test/Ancestral_reconstruction/matrix/sitewise_IGC_statmatrix/posterior/' + self.paralog[0] + '_' + self.paralog[1] + '_' +model +'_IGC.txt', 'w+'), posterior_IGC)
+            np.savetxt(open(summary_path +'posteriorIGCprob_1to2.txt', 'w+'), posterior_1to2)
+            np.savetxt(open(summary_path +'posteriorIGCprob_2to1.txt', 'w+'), posterior_2to1)
+            np.savetxt(open(summary_path +'posteriorIGCprob_IGC.txt', 'w+'), posterior_IGC)
        
     def get_individual_summary(self, summary_path, file_name = None):
         if file_name == None:

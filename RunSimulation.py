@@ -3,7 +3,7 @@
 from CodonGeneconv import ReCodonGeneconv
 import os
 import argparse
-'''
+
 def main(args):
     paralog1 = args.p1
     paralog2 = args.p2
@@ -16,34 +16,36 @@ def main(args):
 
     alignment_file = './' + '_'.join(paralog) + '/tau'+ str(tau) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + '_'.join(paralog) + '_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '_leaf.fasta'
     save_name = './SimulationSave/' + '_'.join(paralog) +'/tau'+ str(tau) + '/IGCgeo_' + str(IGC_geo) + '/' + '_'.join(paralog) + '_MG94_geo_'  + str(IGC_geo) + '_Sim_' + str(sim_num) + '_save.txt'
-    summary_name = './SimulationSummary/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/' + '_'.join(paralog) + '_MG94_geo_'  + str(IGC_geo) + '_Sim_' + str(sim_num) + '_summary.txt'
-
+    summary_path = './SimulationSummary/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'
+    summary_name1 = './SimulationSummary/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' +'IGCsummary.txt'
+    summary_name2 = './SimulationSummary/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' +'tau=0summary.txt'
     # generate folder if not exist
     if not os.path.isdir('./SimulationSave/' + '_'.join(paralog) + '/'):
         os.makedirs('./SimulationSave/' + '_'.join(paralog) + '/')
-
+    
     if not os.path.isdir('./SimulationSave/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/'):
         os.makedirs('./SimulationSave/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/')
-
+    
     if not os.path.isdir('./SimulationSummary/' + '_'.join(paralog) + '/'):
         os.makedirs('./SimulationSummary/' + '_'.join(paralog) + '/')
-
-    if not os.path.isdir('./SimulationSummary/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/'):
-        os.makedirs('./SimulationSummary/' + '_'.join(paralog) +'/tau'+ str(tau) + '/IGCgeo_' + str(IGC_geo) + '/')
+    
+    if not os.path.isdir(summary_path):
+        os.makedirs(summary_path)
         
     test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = None, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num,realtau = tau)
     
-
+    
     #test.get_mle(False, True, 0, 'BFGS')
     test.site_reconstruction()
-    test.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name)
-    
+    test.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name1)
+    test.save_likelihood(summary_path = summary_path)
+    test.Expected_tau_for_sitewise_and_branchwise(summary_path = summary_path)
+    #MG94_tau_series = MG94_tau.reconstruction_series
+    #MG94_tau_likelihooddict = MG94_tau.likelihood_dict
     test2 = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = {5:0.0}, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num,realtau = tau)
-    
-
-    #test2.get_mle(False, True, 0, 'BFGS')
     test2.site_reconstruction()
-    test2.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name)
+    test2.save_likelihood(summary_path = summary_path)
+    test2.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name2)
 
 
 
@@ -73,8 +75,8 @@ sim_num = 0
 alignment_file = './' + '_'.join(paralog) + '/tau'+ str(tau) + '/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' + '_'.join(paralog) + '_MG94_geo_' + str(IGC_geo) + '_Sim_' + str(sim_num) + '_leaf.fasta'
 save_name = './SimulationSave/' + '_'.join(paralog) +'/tau'+ str(tau) + '/IGCgeo_' + str(IGC_geo) + '/' + '_'.join(paralog) + '_MG94_geo_'  + str(IGC_geo) + '_Sim_' + str(sim_num) + '_save.txt'
 summary_path = './SimulationSummary/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/'
-summary_name = './SimulationSummary/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' +'summary.txt'
-
+summary_name1 = './SimulationSummary/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' +'IGCsummary.txt'
+summary_name2 = './SimulationSummary/' + '_'.join(paralog) + '/tau'+ str(tau) +'/IGCgeo_' + str(IGC_geo) + '/sim_' + str(sim_num) + '/' +'tau=0summary.txt'
 # generate folder if not exist
 if not os.path.isdir('./SimulationSave/' + '_'.join(paralog) + '/'):
     os.makedirs('./SimulationSave/' + '_'.join(paralog) + '/')
@@ -92,12 +94,14 @@ test = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', For
 
 
 #test.get_mle(False, True, 0, 'BFGS')
-#test.site_reconstruction()
-test.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name)
-test.save_likelihood()
-#test.Expected_tau_for_sitewise_and_branchwise()
+test.site_reconstruction()
+test.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name1)
+test.save_likelihood(summary_path = summary_path)
+test.Expected_tau_for_sitewise_and_branchwise(summary_path = summary_path)
 #MG94_tau_series = MG94_tau.reconstruction_series
 #MG94_tau_likelihooddict = MG94_tau.likelihood_dict
-
-#test.get_SitewisePosteriorSummary(summary_path = './test/Summary/')
-#test2 = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = {5:0.0}, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num,realtau = tau)
+test2 = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = {5:0.0}, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num,realtau = tau)
+test2.site_reconstruction()
+test2.save_likelihood(summary_path = summary_path)
+test2.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name2)
+'''
