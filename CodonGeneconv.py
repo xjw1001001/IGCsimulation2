@@ -1764,18 +1764,19 @@ class ReCodonGeneconv:
         save_file = prefix_save +'_' + '_'.join(self.paralog) + suffix_save
         return save_file
 
-    def save_likelihood(self,method):#ll,AIC
-        if self.tau == 0:
-            f=open('./test/Ancestral_reconstruction/model_likelihood/' + 'ancestral_reconstruction_' + self.paralog[0] + '_' + self.paralog[1] + '_' +self.Model +'_tau=0'+method+'.txt', 'w+')
-        else:
-            f=open('./test/Ancestral_reconstruction/model_likelihood/' + 'ancestral_reconstruction_' + self.paralog[0] + '_' + self.paralog[1] + '_' +self.Model +'_IGC'+method+'.txt', 'w+')
-        f.write(repr(self.ll))
-        f.write('\n')
-        if self.tau == 0:
-            f.write(repr(2*len(self.x)-2*self.ll-2))
-        else:
-            f.write(repr(2*len(self.x)-2*self.ll))
-        f.close()
+    def save_likelihood(self,summary_path = 'default'):#ll,AIC
+        if not summary_path == 'default':  
+            if self.tau == 0:
+                f=open(summary_path + 'likelihood_tau0.txt', 'w+')
+            else:
+                f=open(summary_path + 'likelihood_IGC.txt', 'w+')
+            f.write(repr(self.ll))
+            f.write('\n')
+            if self.tau == 0:
+                f.write(repr(2*len(self.x)-2*self.ll-2))
+            else:
+                f.write(repr(2*len(self.x)-2*self.ll))
+            f.close()
         
     def save_x(self):
         if self.clock:
