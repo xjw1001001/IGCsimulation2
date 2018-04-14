@@ -1,9 +1,9 @@
 #-*- coding:utf-8 -*-
 
-from Rewrite_CodonGeneconv import ReCodonGeneconv
+from CodonGeneconv import ReCodonGeneconv
 import os
 import argparse
-
+'''
 def main(args):
     paralog1 = args.p1
     paralog2 = args.p2
@@ -59,7 +59,7 @@ if __name__ == '__main__':
     main(parser.parse_args())    
 
 '''
-from Rewrite_CodonGeneconv import ReCodonGeneconv
+from CodonGeneconv import ReCodonGeneconv
 import os
 import argparse
 
@@ -95,4 +95,3 @@ test.site_reconstruction()
 test.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name)
 
 test2 = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Force = {5:0.0}, clock = False, save_name = save_name,IGC_geo = IGC_geo, sim_num = sim_num,realtau = tau)
-'''

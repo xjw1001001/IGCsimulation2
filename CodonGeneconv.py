@@ -10,6 +10,7 @@
   
 
 from __future__ import print_function, absolute_import
+import networkx as nx
 from IGCexpansion.CodonGeneconFunc import *
 import argparse
 #from jsonctmctree.extras import optimize_em
@@ -114,9 +115,67 @@ class ReCodonGeneconv:
                 print ('Successfully loaded parameter value from ' + save_file)
                 
     def get_tree(self):
-        self.tree, self.edge_list, self.node_to_num = read_newick(self.newicktree, self.post_dup)
+        tree = Phylo.read( self.newicktree, "newick")
+        #set node number for nonterminal nodes and specify root node
+        numInternalNode = 0
+        for clade in tree.get_nonterminals():
+            clade.name = 'N' + str(numInternalNode)
+            numInternalNode += 1
+        tree_phy = tree.as_phyloxml(rooted = 'True')
+        tree_nx = Phylo.to_networkx(tree_phy)
+
+        triples = ((u.name, v.name, d['weight']) for (u, v, d) in tree_nx.edges(data = True)) # data = True to have the blen as 'weight'
+        T = nx.DiGraph()
+        edge_to_blen = {}
+        for va, vb, blen in triples:
+            edge = (va, vb)
+            T.add_edge(*edge)
+            edge_to_blen[edge] = blen
+
+        self.edge_to_blen = edge_to_blen
+
+        # Now assign node_to_num
+        leaves = set(v for v, degree in T.degree().items() if degree == 1)
+        internal_nodes = set(list(T)).difference(leaves)
+        internal_nodes = list(internal_nodes)
+        internal_nodes.sort(key = lambda node: int(node[1:]))
+        
+        node_names = internal_nodes + list(leaves)
+        self.node_to_num = {n:i for i, n in enumerate(node_names)}
         self.num_to_node = {self.node_to_num[i]:i for i in self.node_to_num}
-        self.edge_to_blen = {edge:1.0 for edge in self.edge_list}
+
+        # Prepare for generating self.tree so that it has same order as the self.x_process
+        nEdge = len(self.edge_to_blen)  # number of edges
+        l = nEdge / 2 + 1               # number of leaves
+        k = l - 1   # number of internal nodes. The notation here is inconsistent with Alex's for trying to match my notes.
+
+        leaf_branch = [edge for edge in self.edge_to_blen.keys() if edge[0][0] == 'N' and str.isdigit(edge[0][1:]) and not str.isdigit(edge[1][1:])]
+        out_group_branch = [edge for edge in leaf_branch if edge[0] == 'N0' and not str.isdigit(edge[1][1:])] [0]
+        internal_branch = [x for x in self.edge_to_blen.keys() if not x in leaf_branch]
+        assert(len(internal_branch) == k-1)  # check if number of internal branch is one less than number of internal nodes
+
+        leaf_branch.sort(key = lambda node: int(node[0][1:]))  # sort the list by the first node number in increasing order
+        internal_branch.sort(key = lambda node: int(node[0][1:]))  # sort the list by the first node number in increasing order
+        edge_list = []
+        for i in range(len(internal_branch)):
+            edge_list.append(internal_branch[i])
+            edge_list.append(leaf_branch[i])
+        for j in range(len(leaf_branch[i + 1:])):
+            edge_list.append(leaf_branch[i + 1 + j])
+        
+        edge_list.sort(key = lambda node: int(node[0][1:]))
+        # Now setup self.tree dictionary
+        tree_row = [self.node_to_num[na] for na, nb in edge_list]
+        tree_col = [self.node_to_num[nb] for na, nb in edge_list]
+        tree_process = [0 if e[0] == 'N0' and e[1] != 'N1' else 1 for e in edge_list]
+        self.edge_list = edge_list
+
+        self.tree = dict(
+            row = tree_row,
+            col = tree_col,
+            process = tree_process,
+            rate = np.ones(len(tree_row))
+            )
 
 
     def nts_to_codons(self):
