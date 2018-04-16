@@ -1857,7 +1857,26 @@ class ReCodonGeneconv:
                 model = self.Model + '_tau=0'
             else:
                 model = self.Model + '_IGC'
-
+        
+            if not os.path.isdir('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/arg/'):
+                os.makedirs('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/arg/')
+            if not os.path.isdir('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/likelihood/'):
+                os.makedirs('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/likelihood/')
+            if not os.path.isdir('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/marginal/'):
+                os.makedirs('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/marginal/')
+            if not os.path.isdir('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/argnode/'):
+                os.makedirs('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/argnode/')
+            if not os.path.isdir('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/likelihoodnode/'):
+                os.makedirs('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/likelihoodnode/')
+            
+            np.save('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/arg/' + '_'.join(self.paralog) + '_tau'+ str(self.realtau) +'_IGCgeo_' + str(self.IGC_geo) + '_sim_' + str(self.sim_num) +model+'.npy', argmatrix)
+            np.save('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/likelihood/' +'_'.join(self.paralog) + '_tau'+ str(self.realtau) +'_IGCgeo_' + str(self.IGC_geo) + '_sim_' + str(self.sim_num) +model+'.npy', likelihood_matrix)
+            np.save('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/marginal/'  + self.paralog[0]  + '_tau'+ str(self.realtau) +'_IGCgeo_' + str(self.IGC_geo) + '_sim_' + str(self.sim_num) +model+'.npy', marginal_states_matrix_1)
+            np.save('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/marginal/' + self.paralog[1]  + '_tau'+ str(self.realtau) +'_IGCgeo_' + str(self.IGC_geo) + '_sim_' + str(self.sim_num) +model+'.npy', marginal_states_matrix_2)
+            for node in range(len(self.node_to_num)):    
+                np.savetxt(open('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/argnode/' + '_'.join(self.paralog) + '_tau'+ str(self.realtau) +'_IGCgeo_' + str(self.IGC_geo) + '_sim_' + str(self.sim_num)  +model + '_node_' + str(node) +'.txt', 'w+'), argmatrix[:,node,:])
+                np.savetxt(open('./test/Ancestral_reconstruction/matrix/reconstruction_likelihood/npy/likelihoodnode/' + '_'.join(self.paralog) + '_tau'+ str(self.realtau) +'_IGCgeo_' + str(self.IGC_geo) + '_sim_' + str(self.sim_num)  +model + '_node_' + str(node) +'.txt', 'w+'), likelihood_matrix[:,node,:])
+     
             self.get_reconstruction_result(states_matrix, maxprob_number, DNA_or_protein = 'DNA')            
         else:
             print ('Need to implement this for old package')

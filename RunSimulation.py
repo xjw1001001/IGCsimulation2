@@ -3,7 +3,7 @@
 from CodonGeneconv import ReCodonGeneconv
 import os
 import argparse
-
+'''
 def main(args):
     paralog1 = args.p1
     paralog2 = args.p2
@@ -104,4 +104,3 @@ test2 = ReCodonGeneconv( newicktree, alignment_file, paralog, Model = 'MG94', Fo
 test2.site_reconstruction()
 test2.save_likelihood(summary_path = summary_path)
 test2.get_individual_summary(summary_path = './SimulationSummary/' + '_'.join(paralog) + '/', file_name = summary_name2)
-'''
